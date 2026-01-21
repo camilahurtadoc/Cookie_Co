@@ -6,18 +6,21 @@ import { BrowserRouter } from 'react-router-dom'
 import AxiosCookieIdProvider from './context/AxiosCookieIdContext.jsx'
 import AxiosCookiesProvider from './context/AxiosCookiesContext.jsx'
 import CartProvider from './context/CartContext.jsx'
+import UserProvider from './context/UserContext.jsx'
 
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <BrowserRouter>
-      <AxiosCookiesProvider>
-        <AxiosCookieIdProvider>
-          <CartProvider>
-            <App />
-          </CartProvider>
-        </AxiosCookieIdProvider>
-      </AxiosCookiesProvider>
+      <UserProvider>
+        <AxiosCookiesProvider>
+          <AxiosCookieIdProvider>
+            <CartProvider>
+              <App />
+            </CartProvider>
+          </AxiosCookieIdProvider>
+        </AxiosCookiesProvider>
+      </UserProvider>
     </BrowserRouter>
   </StrictMode>,
 )
