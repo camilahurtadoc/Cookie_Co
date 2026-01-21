@@ -5,6 +5,7 @@ import App from './App.jsx'
 import { BrowserRouter } from 'react-router-dom'
 import AxiosCookieIdProvider from './context/AxiosCookieIdContext.jsx'
 import AxiosCookiesProvider from './context/AxiosCookiesContext.jsx'
+import CartProvider from './context/CartContext.jsx'
 
 
 createRoot(document.getElementById('root')).render(
@@ -12,7 +13,9 @@ createRoot(document.getElementById('root')).render(
     <BrowserRouter>
       <AxiosCookiesProvider>
         <AxiosCookieIdProvider>
-          <App />
+          <CartProvider>
+            <App />
+          </CartProvider>
         </AxiosCookieIdProvider>
       </AxiosCookiesProvider>
     </BrowserRouter>
