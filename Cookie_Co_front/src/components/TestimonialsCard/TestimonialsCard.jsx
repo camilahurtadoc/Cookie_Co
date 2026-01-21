@@ -9,7 +9,7 @@ const TestimonialsCard = ({ rating, name, img, review }) => {
     const starRating = (rating) => {
         const stars = [];
         for (let i = 0; i < rating; i++) {
-            stars.push(<StarRateIcon fontSize="small" sx={{color:'#F2C94C'}}/>);
+            stars.push(<StarRateIcon fontSize="small" sx={{color:'#F2C94C'}} key={i}/>);
         }
         return stars;
     };
