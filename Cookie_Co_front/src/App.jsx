@@ -16,6 +16,7 @@ import Register from './pages/Register/Register';
 import Logout from './pages/Logout/Logout';
 import NotFound from './pages/NotFound/NotFound';
 import ProfileAdress from './pages/ProfileAdress/ProfileAdress';
+import Footer from './components/Footer/Footer';
 
 function App() {
 
@@ -40,6 +41,7 @@ function App() {
         <Route path='/*' element={<NotFound />} />
 
       </Routes>
+      <Footer />
 
     </>
   )
