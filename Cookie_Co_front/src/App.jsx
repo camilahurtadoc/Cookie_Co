@@ -1,4 +1,3 @@
-import './App.css'
 import { Route, Routes } from 'react-router-dom';
 
 import Banner from './components/Banner/Banner'
@@ -17,6 +16,8 @@ import Logout from './pages/Logout/Logout';
 import NotFound from './pages/NotFound/NotFound';
 import ProfileAdress from './pages/ProfileAdress/ProfileAdress';
 import Footer from './components/Footer/Footer';
+import './App.css'
+
 
 function App() {
 

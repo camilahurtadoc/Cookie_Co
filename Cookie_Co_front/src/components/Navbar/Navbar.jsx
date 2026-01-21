@@ -15,6 +15,8 @@ import AdbIcon from '@mui/icons-material/Adb';
 import logoHorizontal from '../../assets/images/logos/logo_horizontal_bg_4.png';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { Link as RouterLink } from 'react-router-dom';
+import Divider from '@mui/material/Divider';
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 
 const theme = createTheme({
     palette: {
@@ -182,6 +184,8 @@ function ResponsiveAppBar() {
                                 Mi Cuenta
                             </Button>
                         </Box>
+
+
                         <Box sx={{ flexGrow: 0 }}>
                             <Tooltip title="Open settings">
                                 <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
@@ -206,9 +210,9 @@ function ResponsiveAppBar() {
                             >
                                 {/* {settings.map((setting) => (
                                     <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                                        <Typography sx={{ textAlign: 'center' }} color='primary'>{setting}</Typography>
+                                    <Typography sx={{ textAlign: 'center' }} color='primary'>{setting}</Typography>
                                     </MenuItem>
-                                ))} */}
+                                    ))} */}
                                 <MenuItem onClick={handleCloseUserMenu} component={RouterLink} to='/perfil'>
                                     <Typography sx={{ textAlign: 'center' }} color='primary'>Perfil</Typography>
                                 </MenuItem>
@@ -225,6 +229,12 @@ function ResponsiveAppBar() {
                                     <Typography sx={{ textAlign: 'center' }} color='primary'>Cerrar Sesión</Typography>
                                 </MenuItem>
                             </Menu>
+                        </Box>
+                        {/* <Divider orientation="vertical" variant="middle" sx={{ color: '#EDE4D9', m: 1, height: '50px' }}  ></Divider> */}
+                        <Box sx={{ ml: 3, display: 'flex', alignItems: 'center' }}>
+                            <Button component={RouterLink} to='/carrito' >
+                                <ShoppingCartIcon fontSize="large" sx={{color:'#F5E8C7'}}/>
+                            </Button>
                         </Box>
                     </Toolbar>
                 </Container>
