@@ -33,6 +33,7 @@ function App() {
         <Route path='/carrito' element={<Cart />} />
         <Route path='/login' element={<Login />} />
         <Route path='/register' element={<Register />} />
+        <Route path='/logout' element={<Logout />} />
         <Route path='/perfil' element={<Profile />} />
         <Route path='/perfil/pedidos' element={<Orders />} />
         <Route path='/perfil/direcciones' element={<ProfileAdress />} />
