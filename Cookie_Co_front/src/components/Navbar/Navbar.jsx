@@ -1,4 +1,4 @@
-import * as React from 'react';
+import  React, { useContext, useEffect, useState } from 'react';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
@@ -16,7 +16,10 @@ import logoHorizontal from '../../assets/images/logos/logo_horizontal_bg_4.png';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { Link as RouterLink } from 'react-router-dom';
 import Divider from '@mui/material/Divider';
+import Badge from '@mui/material/Badge';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import { CartContext } from '../../context/CartContext';
+import { UserContext } from '../../context/UserContext';
 
 const theme = createTheme({
     palette: {
@@ -33,8 +36,8 @@ const pages = ['Inicio', 'Pide Aquí', 'Locales', 'Blog', 'Mi Cuenta'];
 const settings = ['Perfil', 'Mis Pedidos', 'Direcciones', 'Favoritos'];
 
 function ResponsiveAppBar() {
-    const [anchorElNav, setAnchorElNav] = React.useState(null);
-    const [anchorElUser, setAnchorElUser] = React.useState(null);
+    const [anchorElNav, setAnchorElNav] = useState(null);
+    const [anchorElUser, setAnchorElUser] = useState(null);
 
     const handleOpenNavMenu = (event) => {
         setAnchorElNav(event.currentTarget);
@@ -50,6 +53,16 @@ function ResponsiveAppBar() {
     const handleCloseUserMenu = () => {
         setAnchorElUser(null);
     };
+
+    const { total, cartCount, cartCounter } = useContext(CartContext);
+    const { tokenJwt } = useContext(UserContext);
+
+    //innecesario?
+    const setActiveClass = ({ isActive, isPending }) => (isPending ? "pending nav-link" : isActive ? "active nav-link" : "nav-link");
+
+    useEffect(() => {
+        cartCounter();
+    })
 
     return (
         <ThemeProvider theme={theme}>
@@ -233,7 +246,9 @@ function ResponsiveAppBar() {
                         {/* <Divider orientation="vertical" variant="middle" sx={{ color: '#EDE4D9', m: 1, height: '50px' }}  ></Divider> */}
                         <Box sx={{ ml: 3, display: 'flex', alignItems: 'center' }}>
                             <Button component={RouterLink} to='/carrito' >
-                                <ShoppingCartIcon fontSize="large" sx={{color:'#F5E8C7'}}/>
+                            <Badge color='secondary' badgeContent={cartCount}>
+                                <ShoppingCartIcon fontSize="large" sx={{ color: '#F5E8C7' }} />
+                            </Badge>
                             </Button>
                         </Box>
                     </Toolbar>
