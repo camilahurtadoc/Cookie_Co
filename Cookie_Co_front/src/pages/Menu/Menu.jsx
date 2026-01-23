@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useContext, useEffect } from 'react'
 import MenuHeroSection from '../../components/MenuHeroSection/MenuHeroSection'
 import Box from '@mui/material/Box'
 import Typography from '@mui/material/Typography'
@@ -12,8 +12,16 @@ import cookie_chocolate_amargo_chip from '../../assets/images/productos/cookies/
 import cookie_chocolate_amargo_chip_mantequila_mani from '../../assets/images/productos/cookies/chocolate_amargo_chip_mantequila_mani_md.avif'
 import cookie_doble_chip_chocolate from '../../assets/images/productos/cookies/doble_chip_chocolate_md.avif'
 import cookie_vegana_chip_chocolate_nueces from '../../assets/images/productos/cookies/vegana_chip_chocolate_nueces_md.avif'
+import { AxiosCookiesContext } from '../../context/AxiosCookiesContext'
 
 const Menu = () => {
+
+    const { listaCookies, getCookiesList } = useContext(AxiosCookiesContext)
+
+    useEffect(() => {
+        getCookiesList()
+    }, [])
+
   return (
     <>
       <MenuHeroSection />
@@ -21,28 +29,28 @@ const Menu = () => {
         <Typography variant='h4' sx={{ m: 2, color: 'primary' }}>Nuestros productos</Typography>
         <Grid container spacing={2}>
           <Grid size={{ xs: 12, md: 4 }}>
-            <MenuCards img={cookie_avena_pasas} alt={'galleta avena y pasas'} title={'Cookie Avena y Pasas'} price={1000} />
+            <MenuCards img={cookie_avena_pasas} alt={'galleta avena y pasas'} title={'Cookie Avena y Pasas'} price={1000} id={1} />
           </Grid>
           <Grid size={{ xs: 12, md: 4 }}>
-            <MenuCards img={cookie_blanco_negro} alt={'galleta chocolate blanco y negro'} title={'Cookie Cholocale Blanco y Negro'} price={2000} />
+            <MenuCards img={cookie_blanco_negro} alt={'galleta chocolate blanco y negro'} title={'Cookie Cholocale Blanco y Negro'} price={2000} id={2} />
           </Grid>
           <Grid size={{ xs: 12, md: 4 }}>
-            <MenuCards img={cookie_cafe_toffee} alt={'galleta café y toffee'} title={'Cookie Café y Toffee'} price={3000} />
+            <MenuCards img={cookie_cafe_toffee} alt={'galleta café y toffee'} title={'Cookie Café y Toffee'} price={3000} id={3} />
           </Grid>
           <Grid size={{ xs: 12, md: 4 }}>
-            <MenuCards img={cookie_caramelo_coco} alt={'galleta caramelo y coco'} title={'Cookie Caramelo y Coco'} price={4000} />
+            <MenuCards img={cookie_caramelo_coco} alt={'galleta caramelo y coco'} title={'Cookie Caramelo y Coco'} price={4000} id={4} />
           </Grid>
           <Grid size={{ xs: 12, md: 4 }}>
-            <MenuCards img={cookie_chocolate_amargo_chip} alt={'galleta chocolate amargo y chips'} title={'Cookie Chocolate Amargo y Chips'} price={5000} />
+            <MenuCards img={cookie_chocolate_amargo_chip} alt={'galleta chocolate amargo y chips'} title={'Cookie Chocolate Amargo y Chips'} price={5000} id={5} />
           </Grid>
           <Grid size={{ xs: 12, md: 4 }}>
-            <MenuCards img={cookie_chocolate_amargo_chip_mantequila_mani} alt={'galleta chocolate amargo y mantequilla maní'} title={'Cookie Chocolate y Chips de Mantequilla Maní'} price={6000} />
+            <MenuCards img={cookie_chocolate_amargo_chip_mantequila_mani} alt={'galleta chocolate amargo y mantequilla maní'} title={'Cookie Chocolate y Chips de Mantequilla Maní'} price={6000} id={6} />
           </Grid>
           <Grid size={{ xs: 12, md: 4 }}>
-            <MenuCards img={cookie_doble_chip_chocolate} alt={'galleta doble chip chocolate'} title={'Cookie Doble Chip Chocolate'} price={7000} />
+            <MenuCards img={cookie_doble_chip_chocolate} alt={'galleta doble chip chocolate'} title={'Cookie Doble Chip Chocolate'} price={7000} id={7} />
           </Grid>
           <Grid size={{ xs: 12, md: 4 }}>
-            <MenuCards img={cookie_vegana_chip_chocolate_nueces} alt={'galleta vegana chip chocolates y nueves'} title={'Cookie Vegana Chip Chocolate y Nueces'} price={8000} />
+            <MenuCards img={cookie_vegana_chip_chocolate_nueces} alt={'galleta vegana chip chocolates y nueves'} title={'Cookie Vegana Chip Chocolate y Nueces'} price={8000} id={8} />
           </Grid>
         </Grid>
       </Box>
