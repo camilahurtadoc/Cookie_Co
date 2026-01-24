@@ -1,4 +1,4 @@
-import { Route, Routes } from 'react-router-dom';
+import { Navigate, Route, Routes } from 'react-router-dom';
 
 import Banner from './components/Banner/Banner'
 import Navbar from './components/Navbar/Navbar'
@@ -17,9 +17,24 @@ import NotFound from './pages/NotFound/NotFound';
 import ProfileAdress from './pages/ProfileAdress/ProfileAdress';
 import Footer from './components/Footer/Footer';
 import './App.css'
+import { useContext, useEffect } from 'react';
+import { UserContext } from './context/UserContext';
+import { CartContext } from './context/CartContext';
 
 
 function App() {
+
+  const { tokenJwt, setTokenJwt } = useContext(UserContext)
+  const { cart, total } = useContext(CartContext)
+
+  useEffect(() => {
+    setTokenJwt(localStorage.getItem("token_jwt"))
+  }, [])
+
+  useEffect(() => {
+    localStorage.setItem("cart", JSON.stringify(cart))
+    localStorage.setItem("total", total)
+  }, [cart, total])
 
   return (
     <>
@@ -31,15 +46,26 @@ function App() {
         <Route path='/locales' element={<Locations />} />
         <Route path='/blog' element={<Blog />} />
         <Route path='/carrito' element={<Cart />} />
-        <Route path='/login' element={<Login />} />
-        <Route path='/register' element={<Register />} />
+
+        <Route path='/login' element={tokenJwt ? <Navigate to="/" /> : <Login />} />
+        <Route path='/register' element={tokenJwt ? <Navigate to="/" /> : <Register />} />
         <Route path='/logout' element={<Logout />} />
         <Route path='/perfil' element={<Profile />} />
         <Route path='/perfil/pedidos' element={<Orders />} />
         <Route path='/perfil/direcciones' element={<ProfileAdress />} />
         <Route path='/perfil/favoritos' element={<Favorites />} />
-        <Route path='/perfil/logout' element={<Logout />} />
-        {/* <Route path='' element={ }/> */}
+
+        {/* 
+        <Route path='/login' element={tokenJwt ? <Navigate to="/" /> : <Login />} />
+        <Route path='/register' element={tokenJwt ? <Navigate to="/" /> : <Register />} />
+        <Route path='/logout' element={tokenJwt ? <Logout /> : <Navigate to="/" />} />
+        <Route path='/perfil' element={tokenJwt ? <Profile /> : <Navigate to="/" />} />
+        <Route path='/perfil/pedidos' element={tokenJwt ? <Orders /> : <Navigate to="/" />} />
+        <Route path='/perfil/direcciones' element={tokenJwt ? <ProfileAdress /> : <Navigate to="/" />} />
+        <Route path='/perfil/favoritos' element={tokenJwt ? <Favorites /> : <Navigate to="/" />} /> */}
+
+
+
         <Route path='/*' element={<NotFound />} />
 
       </Routes>
