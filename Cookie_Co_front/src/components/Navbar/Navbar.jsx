@@ -1,4 +1,4 @@
-import  React, { useContext, useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
@@ -193,13 +193,32 @@ function ResponsiveAppBar() {
                             <Button component={RouterLink} to='/blog' sx={{ my: 2, display: 'block' }} color='secondary' >
                                 Blog
                             </Button>
-                            <Button component={RouterLink} to='/login' sx={{ my: 2, display: 'block' }} color='secondary' >
-                                Mi Cuenta
-                            </Button>
+                            {/* <Divider orientation="vertical" variant="middle" flexItem sx={{ bgcolor:'#EDE4D9', }}/> */}
+                            {/* {
+                                tokenJwt ? (
+                                    <>
+                                        <Button component={RouterLink} to='/perfil' sx={{ my: 2, display: 'block' }} color='secondary' >
+                                            Mi Cuenta
+                                        </Button>
+                                        <Button component={RouterLink} to='/logout' sx={{ my: 2, display: 'block' }} color='secondary' >
+                                            Cerrar Sesión
+                                        </Button>
+                                    </>
+                                ) : (
+                                    <>
+                                        <Button component={RouterLink} to='/login' sx={{ my: 2, display: 'block' }} color='secondary' >
+                                            Login
+                                        </Button>
+                                        <Button component={RouterLink} to='/register' sx={{ my: 2, display: 'block' }} color='secondary' >
+                                            Register
+                                        </Button>
+                                    </>
+                                )
+                            } */}
                         </Box>
 
-
-                        <Box sx={{ flexGrow: 0 }}>
+                        {/* Avatar + menú usuario */}
+                        {/* <Box sx={{ flexGrow: 0 }}>
                             <Tooltip title="Open settings">
                                 <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
                                     <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
@@ -220,13 +239,15 @@ function ResponsiveAppBar() {
                                 }}
                                 open={Boolean(anchorElUser)}
                                 onClose={handleCloseUserMenu}
-                            >
-                                {/* {settings.map((setting) => (
+                            > */}
+
+                        {/* {settings.map((setting) => (
                                     <MenuItem key={setting} onClick={handleCloseUserMenu}>
                                     <Typography sx={{ textAlign: 'center' }} color='primary'>{setting}</Typography>
                                     </MenuItem>
                                     ))} */}
-                                <MenuItem onClick={handleCloseUserMenu} component={RouterLink} to='/perfil'>
+
+                        {/* <MenuItem onClick={handleCloseUserMenu} component={RouterLink} to='/perfil'>
                                     <Typography sx={{ textAlign: 'center' }} color='primary'>Perfil</Typography>
                                 </MenuItem>
                                 <MenuItem onClick={handleCloseUserMenu} component={RouterLink} to='/perfil/pedidos'>
@@ -242,13 +263,40 @@ function ResponsiveAppBar() {
                                     <Typography sx={{ textAlign: 'center' }} color='primary'>Cerrar Sesión</Typography>
                                 </MenuItem>
                             </Menu>
-                        </Box>
+                        </Box> */}
+
+
+
                         {/* <Divider orientation="vertical" variant="middle" sx={{ color: '#EDE4D9', m: 1, height: '50px' }}  ></Divider> */}
                         <Box sx={{ ml: 3, display: 'flex', alignItems: 'center' }}>
+                            {
+                                tokenJwt ? (
+                                    <>
+                                        <Button component={RouterLink} to='/perfil' sx={{ my: 2, display: 'block' }} color='secondary' >
+                                            Mi Cuenta
+                                        </Button>
+                                        <Button component={RouterLink} to='/logout' sx={{ my: 2, display: 'block' }} color='secondary' >
+                                            Cerrar Sesión
+                                        </Button>
+                                    </>
+                                ) : (
+                                    <>
+                                        <Button component={RouterLink} to='/login' sx={{ my: 2, display: 'block' }} color='secondary' >
+                                            Login
+                                        </Button>
+                                        <Button component={RouterLink} to='/register' sx={{ my: 2, display: 'block' }} color='secondary' >
+                                            Register
+                                        </Button>
+                                    </>
+                                )
+                            }
                             <Button component={RouterLink} to='/carrito' >
-                            <Badge color='secondary' badgeContent={cartCount}>
-                                <ShoppingCartIcon fontSize="large" sx={{ color: '#F5E8C7' }} />
-                            </Badge>
+                                <Badge color='secondary' badgeContent={cartCount}>
+                                    <ShoppingCartIcon fontSize="large" sx={{ color: '#F5E8C7' }} />
+                                </Badge>
+                                <Typography variant='button' sx={{ color: '#F5E8C7', ml:2 }}>
+                                    Total: ${total.toLocaleString("es-ES", { useGrouping: true })}
+                                </Typography>
                             </Button>
                         </Box>
                     </Toolbar>
