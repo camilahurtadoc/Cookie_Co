@@ -20,7 +20,7 @@ const HeroSection = () => {
           },
         }}
       >
-        <Box sx={{ backgroundColor: '#F5E8C7', display: 'flex'}} >
+        <Box sx={{ backgroundColor: '#EDE4D9', display: 'flex'}} >
           <Box  sx={{width:'50%', display:'flex', flexDirection:'column', justifyContent:'center', }} >
             <Typography variant='h3' component='div' >
               Cookie Co

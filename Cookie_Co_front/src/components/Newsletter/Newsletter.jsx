@@ -19,7 +19,7 @@ const Newsletter = () => {
           },
         }}
       >
-        <Box sx={{ backgroundColor: '#D4A574', display: 'flex', flexDirection: 'column', p: 3 }} >
+        <Box sx={{ backgroundColor: '#EDE4D9', display: 'flex', flexDirection: 'column', p: 3 }} >
           <Typography variant='h3' component='div' >
             Newsletter
           </Typography>
