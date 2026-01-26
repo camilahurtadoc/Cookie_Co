@@ -14,14 +14,13 @@ const HeroSection = () => {
           display: 'flex',
           flexWrap: 'wrap',
           '& > :not(style)': {
-            my: 2,
-            mx: 10,
             width: '100%',
             height: 300,
+            px: 15, py:5
           },
         }}
       >
-        <Box sx={{ backgroundColor: '#F5E8C7', display: 'flex', p:3}} >
+        <Box sx={{ backgroundColor: '#F5E8C7', display: 'flex'}} >
           <Box  sx={{width:'50%', display:'flex', flexDirection:'column', justifyContent:'center', }} >
             <Typography variant='h3' component='div' >
               Cookie Co
@@ -33,7 +32,7 @@ const HeroSection = () => {
               Lorem ipsum dolor sit amet consectetur, adipisicing elit. Excepturi deleniti aspernatur sint minus accusamus ad ratione similique inventore illo modi nobis officiis.
             </Typography>
           </Box>
-          <Box sx={{width:'50%', display:'flex', justifyContent:'center', }}>
+          <Box sx={{width:'50%', display:'flex', justifyContent:'end', }}>
             <img src={fotoTienda} alt='tienda' height='100%'/>
           </Box>
         </Box>

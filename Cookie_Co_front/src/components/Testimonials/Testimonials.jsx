@@ -12,7 +12,7 @@ import Grid from '@mui/material/Grid';
 const Testimonials = () => {
   return (
     <>
-      <Box sx={{ flexGrow: 1, my: 2, mx: 10, p: 3, backgroundColor: '#F5E8C7' }}>
+      <Box sx={{ flexGrow: 1, px: 15, py:5, backgroundColor: '#F5E8C7' }}>
         <Typography variant='h4' sx={{ m: 2 }}>Testimonios</Typography>
         <Grid container spacing={2}>
           <Grid size={{ xs: 12, md: 3 }}>

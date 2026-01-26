@@ -13,10 +13,9 @@ const Newsletter = () => {
           display: 'flex',
           flexWrap: 'wrap',
           '& > :not(style)': {
-            my: 2,
-            mx: 10,
             width: '100%',
             height: 300,
+            px: 15, py: 5,
           },
         }}
       >
@@ -27,7 +26,7 @@ const Newsletter = () => {
           <Typography variant='subtitle2' component='div' gutterBottom>
             Inscríbete a nuestro newsletter
           </Typography>
-          <Box sx={{display:'flex', justifyContent:'center'}} >
+          <Box sx={{ display: 'flex', justifyContent: 'center' }} >
             <Box component="form"
               sx={{ '& > :not(style)': { mt: 5 }, display: 'flex' }}
               noValidate
@@ -36,7 +35,7 @@ const Newsletter = () => {
               <Button variant='contained' sx={{ p: 2, backgroundColor: '#A84A2E' }}>Registrarme</Button>
             </Box>
           </Box>
-          <Typography variant='body2' component='div' sx={{ mt: 3, alignSelf:'center' }} gutterBottom>
+          <Typography variant='body2' component='div' sx={{ mt: 3, alignSelf: 'center' }} gutterBottom>
             Entérate de nuestras novedades, eventos, descuentos y mucho más!
           </Typography>
           <Box sx={{ width: '50%', display: 'flex', flexDirection: 'column', justifyContent: 'center', }} >
