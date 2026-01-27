@@ -32,7 +32,7 @@ const Menu = () => {
       />
       <Box sx={{ display: 'flex', flexDirection: 'column', my: 2, mx: 10, p: 3 }}>
         <Typography variant='h4' sx={{ m: 2, color: 'primary' }}>Nuestros productos</Typography>
-        <Grid container spacing={2}>
+        <Grid container spacing={2} >
           <Grid size={{ xs: 12, md: 4 }}>
             <MenuCards img={cookie_avena_pasas} alt={'galleta avena y pasas'} title={'Cookie Avena y Pasas'} price={1000} id={1} />
           </Grid>

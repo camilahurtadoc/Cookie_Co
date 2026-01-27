@@ -22,7 +22,7 @@ const MenuHeroSection = ({ title, desc, img }) => {
             <Typography variant='h3' component='div' >
               {title}
             </Typography>
-            <Typography variant='body1' component='div' sx={{ mt: 4 }} gutterBottom>
+            <Typography variant='h6' component='div' sx={{ mt: 4, textAlign:'center' }} gutterBottom>
               {desc}
             </Typography>
           </Box>

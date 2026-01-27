@@ -13,28 +13,59 @@ import Box from '@mui/material/Box';
 import IconButton from '@mui/material/IconButton';
 import RemoveIcon from '@mui/icons-material/Remove';
 import AddIcon from '@mui/icons-material/Add';
+import LocationPinIcon from '@mui/icons-material/LocationPin';
+import PhoneEnabledIcon from '@mui/icons-material/PhoneEnabled';
+import EmailIcon from '@mui/icons-material/Email';
+import AccessTimeFilledIcon from '@mui/icons-material/AccessTimeFilled';
 
-const MenuCards = ({ img, alt, title, price, id }) => {
-
-    const { cart, handleclick2,
-        minusCookie2, plusCookie2 } = useContext(CartContext)
-
-    const [cookieInCart, setCookieInCart] = useState(null)
-
-    const navigate = useNavigate()
-    const goToCookie = () => {
-        navigate(`/cookie/${id}`)
-    }
-
-    useEffect(() => {
-        const index = cart.findIndex(cookie => cookie.id === id)
-        index === -1 ? (setCookieInCart(0)) : (setCookieInCart(cart[index].count))
-
-    })
-
+const LocationsCard = ({ img, alt, shopName, address, phoneNumber, email, horarioLV, horarioS, horarioD }) => {
     return (
         <>
-            <Card sx={{ maxWidth: 345,  margin: 'auto' }}>
+            <Card sx={{ display: 'flex', maxWidth: { xs: '400', md: 'auto' } }}>
+                <Box sx={{ display: 'flex', justifyContent: 'center', p: 'auto', flexDirection: { xs: 'column', md: 'row' } }}>
+                    <CardMedia
+                        component="img"
+                        image={img}
+                        alt={alt}
+                        sx={{ width: 400 }}
+                    />
+                    <CardContent sx={{display:'flex', flexDirection:'column', gap:2}}>
+                        <Typography gutterBottom variant="h5" component="div" sx={{ml:1}}>
+                            {shopName}
+                        </Typography>
+                        <Box sx={{display:'flex', flexDirection:'column', gap:1}}>
+                            <Typography variant="body2" sx={{ color: 'text.secondary', display:'flex', alignItems:'center' }}>
+                                <LocationPinIcon sx={{mr:1}}/>
+                                {address}
+                            </Typography>
+                            <Typography variant="body2" sx={{ color: 'text.secondary', display:'flex', alignItems:'center' }}>
+                                <PhoneEnabledIcon sx={{mr:1}}/>
+                                {phoneNumber}
+                            </Typography>
+                            <Typography variant="body2" sx={{ color: 'text.secondary', display:'flex', alignItems:'center'}}>
+                                <EmailIcon sx={{mr:1}}/>
+                                {email}
+                            </Typography>
+                            <Typography variant="body2" sx={{ color: 'text.secondary', display:'flex', alignItems:'center' }}>
+                                <AccessTimeFilledIcon sx={{mr:1}}/>
+                                Horario Atención:
+                            </Typography>
+                            <Box sx={{ml:5}}>
+                            <Typography variant="body2" sx={{ color: 'text.secondary' }}>
+                                Lunes a Viernes: {horarioLV}
+                            </Typography>
+                            <Typography variant="body2" sx={{ color: 'text.secondary' }}>
+                                Sábado: {horarioS}
+                            </Typography>
+                            <Typography variant="body2" sx={{ color: 'text.secondary' }}>
+                                Domingo: {horarioD}
+                            </Typography>
+                            </Box>
+                        </Box>
+                    </CardContent>
+                </Box>
+            </Card>
+            {/* <Card sx={{ maxWidth: 345,  margin: 'auto' }}>
                 <CardActionArea >
                     <CardMedia
                         component="img"
@@ -83,9 +114,9 @@ const MenuCards = ({ img, alt, title, price, id }) => {
                         )
                     }
                 </CardActions>
-            </Card>
+            </Card> */}
         </>
     )
 }
 
-export default MenuCards
+export default LocationsCard
