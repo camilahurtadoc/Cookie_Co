@@ -4,6 +4,7 @@ import Box from '@mui/material/Box'
 import Typography from '@mui/material/Typography'
 import Grid from '@mui/material/Grid'
 import MenuCards from '../../components/MenuCards/MenuCards'
+import fotoTienda from '../../assets/images/tienda/2150694732.jpg'
 import cookie_avena_pasas from '../../assets/images/productos/cookies/avena_pasas_md.avif'
 import cookie_blanco_negro from '../../assets/images/productos/cookies/blanco_negro_md.avif'
 import cookie_cafe_toffee from '../../assets/images/productos/cookies/cafe_toffee_md.avif'
@@ -24,7 +25,11 @@ const Menu = () => {
 
   return (
     <>
-      <MenuHeroSection />
+      <MenuHeroSection 
+      title={'Pide Aquí'} 
+      desc={'Pide aquí las galletas que pide tu corazón. Hechas con amor y dedicación, listas para llegar y disfrutar en la comodidad de tu casa.'} 
+      img = {fotoTienda}
+      />
       <Box sx={{ display: 'flex', flexDirection: 'column', my: 2, mx: 10, p: 3 }}>
         <Typography variant='h4' sx={{ m: 2, color: 'primary' }}>Nuestros productos</Typography>
         <Grid container spacing={2}>
