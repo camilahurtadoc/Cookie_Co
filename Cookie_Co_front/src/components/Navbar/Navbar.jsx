@@ -152,9 +152,9 @@ function ResponsiveAppBar() {
                             <Button component={RouterLink} to='/locales' sx={{ my: 2, display: 'block' }} color='secondary' >
                                 Locales
                             </Button>
-                            <Button component={RouterLink} to='/blog' sx={{ my: 2, display: 'block' }} color='secondary' >
+                            {/* <Button component={RouterLink} to='/blog' sx={{ my: 2, display: 'block' }} color='secondary' >
                                 Blog
-                            </Button>
+                            </Button> */}
                             {/* <Divider orientation="vertical" variant="middle" flexItem sx={{ bgcolor:'#EDE4D9', }}/> */}
                             {/* {
                                 tokenJwt ? (
