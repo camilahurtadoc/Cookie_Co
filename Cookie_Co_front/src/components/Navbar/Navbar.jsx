@@ -67,9 +67,8 @@ function ResponsiveAppBar() {
     return (
         <ThemeProvider theme={theme}>
 
-
-            <AppBar position="static" sx={{ width: '100%' }}>
-                <Container maxWidth="xl">
+            <AppBar position="static" sx={{ width: '100%', px: 12 }}>
+                <Container maxWidth="xl" >
                     <Toolbar disableGutters>
                         <Box
                             component='img'
@@ -77,24 +76,6 @@ function ResponsiveAppBar() {
                             alt='logo'
                             src={logoHorizontal}
                         />
-                        {/* <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} /> */}
-                        {/* <Typography
-                            variant="h6"
-                            noWrap
-                            component="a"
-                            href="#app-bar-with-responsive-menu"
-                            sx={{
-                                mr: 2,
-                                display: { xs: 'none', md: 'flex' },
-                                fontFamily: 'monospace',
-                                fontWeight: 700,
-                                letterSpacing: '.3rem',
-                                color: 'primary',
-                                textDecoration: 'none',
-                            }}
-                        >
-                            AAAA
-                        </Typography> */}
 
                         <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }} >
                             <IconButton
@@ -151,25 +132,6 @@ function ResponsiveAppBar() {
                             alt='logo'
                             src={logoHorizontal}
                         />
-                        {/* <AdbIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} /> */}
-                        {/* <Typography
-                            variant="h5"
-                            noWrap
-                            component="a"
-                            href="#app-bar-with-responsive-menu"
-                            sx={{
-                                mr: 2,
-                                display: { xs: 'flex', md: 'none' },
-                                flexGrow: 1,
-                                fontFamily: 'monospace',
-                                fontWeight: 700,
-                                letterSpacing: '.3rem',
-                                color: 'inherit',
-                                textDecoration: 'none',
-                            }}
-                        >
-                            LOGO
-                        </Typography> */}
                         <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
                             {/* {pages.map((page) => (
                                 <Button
@@ -264,8 +226,6 @@ function ResponsiveAppBar() {
                                 </MenuItem>
                             </Menu>
                         </Box> */}
-
-
 
                         {/* <Divider orientation="vertical" variant="middle" sx={{ color: '#EDE4D9', m: 1, height: '50px' }}  ></Divider> */}
                         <Box sx={{ ml: 3, display: 'flex', alignItems: 'center' }}>
