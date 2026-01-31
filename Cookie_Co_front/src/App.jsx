@@ -46,28 +46,14 @@ function App() {
         <Route path='/locales' element={<Locations />} />
         <Route path='/blog' element={<Blog />} />
         <Route path='/carrito' element={<Cart />} />
-
-        <Route path='/login' element={tokenJwt ? <Navigate to="/" /> : <Login />} />
-        <Route path='/register' element={tokenJwt ? <Navigate to="/" /> : <Register />} />
-        <Route path='/logout' element={<Logout />} />
-        <Route path='/perfil' element={<Profile />} />
-        <Route path='/perfil/pedidos' element={<Orders />} />
-        <Route path='/perfil/direcciones' element={<ProfileAdress />} />
-        <Route path='/perfil/favoritos' element={<Favorites />} />
-
-        {/* 
         <Route path='/login' element={tokenJwt ? <Navigate to="/" /> : <Login />} />
         <Route path='/register' element={tokenJwt ? <Navigate to="/" /> : <Register />} />
         <Route path='/logout' element={tokenJwt ? <Logout /> : <Navigate to="/" />} />
         <Route path='/perfil' element={tokenJwt ? <Profile /> : <Navigate to="/" />} />
         <Route path='/perfil/pedidos' element={tokenJwt ? <Orders /> : <Navigate to="/" />} />
         <Route path='/perfil/direcciones' element={tokenJwt ? <ProfileAdress /> : <Navigate to="/" />} />
-        <Route path='/perfil/favoritos' element={tokenJwt ? <Favorites /> : <Navigate to="/" />} /> */}
-
-
-
+        <Route path='/perfil/favoritos' element={tokenJwt ? <Favorites /> : <Navigate to="/" />} />
         <Route path='/*' element={<NotFound />} />
-
       </Routes>
       <Footer />
 

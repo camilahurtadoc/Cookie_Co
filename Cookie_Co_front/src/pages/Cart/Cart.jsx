@@ -20,7 +20,7 @@ const Cart = () => {
   const sendCart = async () => {
 
     try {
-      const response = await fetch("http://localhost:5000/api/checkouts", {
+      const response = await fetch("http://localhost:3000/api/carrito", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
