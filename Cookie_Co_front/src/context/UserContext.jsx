@@ -108,12 +108,13 @@ const UserProvider = ({ children }) => {
 
     // Register
     // consumo de ruta para registrar nuevo usuario y entrega de token_jwt
+    const [nombre, setNombre] = useState("")
     const [confirmPassword, setConfirmPassword] = useState("");
 
     const handleSubmitRegister = async (event) => {
         event.preventDefault();
 
-        if (!email.trim() || !password.trim() || !confirmPassword.trim()) {
+        if (!nombre.trim() || !email.trim() || !password.trim() || !confirmPassword.trim()) {
             Swal.fire({
                 title: "Campos Vacíos",
                 text: "Todos los campos son obligatorios.",
@@ -146,7 +147,7 @@ const UserProvider = ({ children }) => {
                 headers: {
                     "Content-Type": "application/json"
                 },
-                body: JSON.stringify({ email, password })
+                body: JSON.stringify({ nombre, email, password })
             })
 
             if (!response.ok) {
@@ -173,6 +174,7 @@ const UserProvider = ({ children }) => {
             console.log("error: ", error)
         }
 
+        setNombre("")
         setEmail("")
         setPassword("")
         setConfirmPassword("")
@@ -188,6 +190,7 @@ const UserProvider = ({ children }) => {
     const getUserInfo = async () => {
         setTokenJwt(localStorage.getItem("token_jwt"))
 
+
         if (!tokenJwt) {
             console.log("El usuario no posee token")
             return
@@ -202,13 +205,15 @@ const UserProvider = ({ children }) => {
                 },
             })
 
+
             if (!response.ok) {
                 console.log("error en perfil usuario")
+                return
             }
 
             const data = await response.json()
 
-            setUserEmail(data.email)      
+            setUserEmail(data.email)
 
         } catch (error) {
             console.log("error: ", error)
@@ -217,13 +222,14 @@ const UserProvider = ({ children }) => {
 
     return (
         <UserContext.Provider value={{
-            tokenJwt, setTokenJwt, 
+            tokenJwt, setTokenJwt,
             logout,
             email, setEmail,
             password, setPassword,
             eye, setEye,
             type, setType,
             seePassword, handleSubmit,
+            nombre, setNombre,
             confirmPassword, setConfirmPassword,
             handleSubmitRegister,
             getUserInfo, userEmail

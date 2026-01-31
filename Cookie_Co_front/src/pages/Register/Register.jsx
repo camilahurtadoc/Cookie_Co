@@ -18,6 +18,7 @@ const Register = () => {
     eye,
     type,
     seePassword,
+    nombre, setNombre,
     confirmPassword, setConfirmPassword,
     handleSubmitRegister } = useContext(UserContext)
 
@@ -32,6 +33,22 @@ const Register = () => {
       // noValidate
       // autoComplete="off"
       >
+        <FormControl sx={{ m: 1, width: '35ch' }}>
+          <InputLabel htmlFor="register-name" color='#5C4033'>Nombre y Apellido</InputLabel>
+          <OutlinedInput
+            required
+            type='text'
+            id="register-name"
+            label='Nombre y Apellido'
+            onChange={event => setNombre(event.target.value)}
+            value={nombre}
+            color='#5C4033'
+            aria-describedby="ingresa-tu-correo-electrónico"
+            inputProps={{
+              'aria-label': 'correo-electrónico',
+            }}
+          />
+        </FormControl>
         <FormControl sx={{ m: 1, width: '35ch' }}>
           <InputLabel htmlFor="register-email" color='#5C4033'>Correo electrónico</InputLabel>
           <OutlinedInput
@@ -82,8 +99,8 @@ const Register = () => {
           <Button variant="contained" type="submit" sx={{ backgroundColor: '#D4A574' }}>
             Crear cuenta
           </Button>
-          <Box sx={{ my: 2, display: 'flex'}}>
-            <Typography variant='caption' sx={{ color: '#5C4033', mr:0.5 }}>¿Ya tienes cuenta? </Typography>
+          <Box sx={{ my: 2, display: 'flex' }}>
+            <Typography variant='caption' sx={{ color: '#5C4033', mr: 0.5 }}>¿Ya tienes cuenta? </Typography>
             <Typography component={Link} to='/login' variant='caption' sx={{ color: '#5C4033' }}> Login</Typography>
           </Box>
         </Box>
