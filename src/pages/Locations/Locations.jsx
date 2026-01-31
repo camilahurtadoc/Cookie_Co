@@ -3,10 +3,10 @@ import MenuHeroSection from '../../components/MenuHeroSection/MenuHeroSection'
 import Box from '@mui/material/Box'
 import Typography from '@mui/material/Typography'
 import Grid from '@mui/material/Grid'
-import exterior2 from '../../assets/images/tienda/exterior2.jpg'
-import exterior3 from '../../assets/images/tienda/exterior3.jpg'
+import exterior2 from '../../../public/images/tienda/exterior2.jpg'
+import exterior3 from '../../../public/images/tienda/exterior3.jpg'
 import LocationsCard from '../../components/LocationsCard/LocationsCard'
-import map from '../../assets/images/tienda/map.jpg'
+import map from '../../../public/images/tienda/map.jpg'
 
 const Locations = () => {
   return (

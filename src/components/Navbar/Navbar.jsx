@@ -12,7 +12,7 @@ import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
-import logoHorizontal from '../../assets/images/logos/logo_horizontal_bg_4.png';
+import logoHorizontal from '../../../public/images/logos/logo_horizontal_bg_4.png';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { Link as RouterLink } from 'react-router-dom';
 import Divider from '@mui/material/Divider';

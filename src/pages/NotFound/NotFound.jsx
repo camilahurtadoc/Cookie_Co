@@ -1,7 +1,7 @@
 import React from 'react'
 import Box from '@mui/material/Box'
 import Typography from '@mui/material/Typography'
-import img from '../../assets/images/notFound/cookie_monster_sad.png'
+import img from '../../../public/images/notFound/cookie_monster_sad.png'
 import { Link } from 'react-router-dom';
 import Button from '@mui/material/Button';
 

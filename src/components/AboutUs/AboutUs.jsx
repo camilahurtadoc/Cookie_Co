@@ -3,8 +3,8 @@ import Box from '@mui/material/Box';
 
 import Paper from '@mui/material/Paper';
 import Typography from '@mui/material/Typography';
-import fotoTienda1 from '../../assets/images/tienda/2150273178.jpg';
-import fotoTienda2 from '../../assets/images/tienda/18517.jpg';
+import fotoTienda1 from '../../../public/images/tienda/2150273178.jpg';
+import fotoTienda2 from '../../../public/images/tienda/18517.jpg';
 
 const AboutUs = () => {
   return (

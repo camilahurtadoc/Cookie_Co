@@ -1,6 +1,6 @@
 import React from 'react'
 import HighlightsCard from '../HighlightsCard/HighlightsCard'
-import imageCookie1 from '../../assets/images/tienda/2150687989.jpg'
+import imageCookie1 from '../../../public/images/tienda/2150687989.jpg'
 import Box from '@mui/material/Box'
 import Typography from '@mui/material/Typography'
 
