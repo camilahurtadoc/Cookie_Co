@@ -13,6 +13,7 @@ import Box from '@mui/material/Box';
 import IconButton from '@mui/material/IconButton';
 import RemoveIcon from '@mui/icons-material/Remove';
 import AddIcon from '@mui/icons-material/Add';
+import Divider from '@mui/material/Divider';
 
 const MenuCards = ({ img, alt, title, price, id }) => {
 
@@ -38,20 +39,21 @@ const MenuCards = ({ img, alt, title, price, id }) => {
                 <CardActionArea >
                     <CardMedia
                         component="img"
-                        height="140"
+                        height="250"
                         image={img}
                         alt={alt}
                     />
-                    <CardContent>
-                        <Typography gutterBottom variant="h5" component="div" sx={{ height: { md: 97 } }} onClick={goToCookie}>
+                    <CardContent sx={{pb:0}}>
+                        <Typography gutterBottom variant="h5" component="div" sx={{ height: { md: 97, lg:'auto' } }} onClick={goToCookie}>
                             {title}
                         </Typography>
-                        <Typography variant="body1" sx={{ color: '#A84A2E', fontWeight: '700', textAlign: 'center' }}>
-                            Precio: ${price.toLocaleString("es-ES", { useGrouping: true })}
+                        <Divider variant="middle" />
+                        <Typography variant="subtitle2" sx={{ color: '#A84A2E', fontWeight: '700', textAlign: 'center', mt:2 }}>
+                            ${price.toLocaleString("es-ES", { useGrouping: true })}
                         </Typography>
                     </CardContent>
                 </CardActionArea>
-                <CardActions sx={{ display: 'flex', justifyContent: 'center' }}>
+                <CardActions sx={{ display: 'flex', justifyContent: 'center', pt:0 }}>
                     {
                         cart.findIndex(cookie => cookie.id === id) === -1 ? (
                             <Box sx={{ display: 'flex', alignItems: 'center', m: 1 }}>
