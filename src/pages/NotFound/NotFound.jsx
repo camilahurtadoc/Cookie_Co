@@ -1,11 +1,14 @@
 import React from 'react'
 import Box from '@mui/material/Box'
 import Typography from '@mui/material/Typography'
-import img from '../../../public/images/notFound/cookie_monster_sad.png'
+// import img from '../../../public/images/notFound/cookie_monster_sad.png'
 import { Link } from 'react-router-dom';
 import Button from '@mui/material/Button';
 
 const NotFound = () => {
+
+  const img = '/images/notFound/cookie_monster_sad.png'
+
   return (
     <Box sx={{ display: 'flex', flexDirection: 'column', alignItems:'center', my: 2, mx: 10, p: 3 }} >
       <Typography variant='h4'>¿Galletas?</Typography>

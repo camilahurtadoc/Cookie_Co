@@ -1,15 +1,21 @@
 import React from 'react'
 import TestimonialsCard from '../TestimonialsCard/TestimonialsCard'
-import imgMan from '../../../public/images/ratings/man.jpg'
-import imgMan2 from '../../../public/images/ratings/man2.jpg'
-import imgWoman from '../../../public/images/ratings/woman.jpg'
-import imgWoman2 from '../../../public/images/ratings/woman2.jpg'
+// import imgMan from '../../../public/images/ratings/man.jpg'
+// import imgMan2 from '../../../public/images/ratings/man2.jpg'
+// import imgWoman from '../../../public/images/ratings/woman.jpg'
+// import imgWoman2 from '../../../public/images/ratings/woman2.jpg'
 import Typography from '@mui/material/Typography'
 import Box from '@mui/material/Box'
 import Grid from '@mui/material/Grid';
 
 
 const Testimonials = () => {
+
+  const imgMan = '/images/ratings/man.jpg'
+  const imgMan2 = '/images/ratings/man2.jpg'
+  const imgWoman = '/images/ratings/woman.jpg'
+  const imgWoman2 = '/images/ratings/woman2.jpg'
+  
   return (
     <>
       <Box sx={{ flexGrow: 1, px: 15, py:5, backgroundColor: '#EDE4D9' }}>

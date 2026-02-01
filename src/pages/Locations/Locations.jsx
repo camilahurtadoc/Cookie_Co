@@ -3,12 +3,17 @@ import MenuHeroSection from '../../components/MenuHeroSection/MenuHeroSection'
 import Box from '@mui/material/Box'
 import Typography from '@mui/material/Typography'
 import Grid from '@mui/material/Grid'
-import exterior2 from '../../../public/images/tienda/exterior2.jpg'
-import exterior3 from '../../../public/images/tienda/exterior3.jpg'
+// import exterior2 from '../../../public/images/tienda/exterior2.jpg'
+// import exterior3 from '../../../public/images/tienda/exterior3.jpg'
+// import map from '../../../public/images/tienda/map.jpg'
 import LocationsCard from '../../components/LocationsCard/LocationsCard'
-import map from '../../../public/images/tienda/map.jpg'
 
 const Locations = () => {
+
+  const exterior2 = '/images/tienda/exterior2.jpg'
+  const exterior3 = '/images/tienda/exterior3.jpg'
+  const mapImage = '/images/tienda/map.JPG'
+
   return (
     <>
       <MenuHeroSection
@@ -21,7 +26,7 @@ const Locations = () => {
         <Grid container spacing={2}>
           <Grid size={{ xs: 12 }}>
             <LocationsCard
-              img={map}
+              img={mapImage}
               alt={'mapa'}
               shopName={'Local Manuel Montt'}
               address={'Manuel Montt 3245, local 12, Providencia'}
@@ -34,7 +39,7 @@ const Locations = () => {
           </Grid>
           <Grid size={{ xs: 12 }}>
             <LocationsCard
-              img={map}
+              img={mapImage}
               alt={'mapa'}
               shopName={'Local Manuel Montt'}
               address={'Manuel Montt 3245, local 12, Providencia'}
@@ -47,7 +52,7 @@ const Locations = () => {
           </Grid>
           <Grid size={{ xs: 12 }}>
             <LocationsCard
-              img={map}
+              img={mapImage}
               alt={'mapa'}
               shopName={'Local Manuel Montt'}
               address={'Manuel Montt 3245, local 12, Providencia'}
@@ -60,7 +65,7 @@ const Locations = () => {
           </Grid>
           <Grid size={{ xs: 12 }}>
             <LocationsCard
-              img={map}
+              img={mapImage}
               alt={'mapa'}
               shopName={'Local Manuel Montt'}
               address={'Manuel Montt 3245, local 12, Providencia'}

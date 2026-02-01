@@ -12,7 +12,7 @@ import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
-import logoHorizontal from '../../../public/images/logos/logo_horizontal_bg_4.png';
+// import logoHorizontal from '../../../public/images/logos/logo_horizontal_bg_4.png';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { Link as RouterLink } from 'react-router-dom';
 import Divider from '@mui/material/Divider';
@@ -36,6 +36,9 @@ const pages = ['Inicio', 'Pide Aquí', 'Locales', 'Blog', 'Mi Cuenta'];
 const settings = ['Perfil', 'Mis Pedidos', 'Direcciones', 'Favoritos'];
 
 function ResponsiveAppBar() {
+
+    const logoHorizontal = '/images/logos/logo_horizontal_bg_4.PNG'
+
     const [anchorElNav, setAnchorElNav] = useState(null);
     const [anchorElUser, setAnchorElUser] = useState(null);
 
@@ -254,7 +257,7 @@ function ResponsiveAppBar() {
                                 <Badge color='secondary' badgeContent={cartCount}>
                                     <ShoppingCartIcon fontSize="large" sx={{ color: '#F5E8C7' }} />
                                 </Badge>
-                                <Typography variant='button' sx={{ color: '#F5E8C7', ml:2 }}>
+                                <Typography variant='button' sx={{ color: '#F5E8C7', ml: 2 }}>
                                     Total: ${total.toLocaleString("es-ES", { useGrouping: true })}
                                 </Typography>
                             </Button>

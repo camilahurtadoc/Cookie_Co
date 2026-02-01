@@ -3,10 +3,13 @@ import Box from '@mui/material/Box';
 
 import Paper from '@mui/material/Paper';
 import Typography from '@mui/material/Typography';
-import fotoTienda from '../../../public/images/tienda/2150694732.jpg';
+// import fotoTienda from '../../../public/images/tienda/2150694732.jpg';
 
 
 const HeroSection = () => {
+
+  const fotoTienda = '/images/tienda/2150694732.jpg'
+
   return (
     <>
       <Box

@@ -1,11 +1,14 @@
 import React from 'react'
 import HighlightsCard from '../HighlightsCard/HighlightsCard'
-import imageCookie1 from '../../../public/images/tienda/2150687989.jpg'
+// import imageCookie1 from '../../../public/images/tienda/2150687989.jpg'
 import Box from '@mui/material/Box'
 import Typography from '@mui/material/Typography'
 
 
 const Highlights = () => {
+
+  const imageCookie1 = '/images/tienda/2150687989.jpg'
+  
   return (
     <Box sx={{ display: 'flex', flexDirection: 'column', px: 15, py:5, backgroundColor: '#5C4033' }}>
       <Typography variant='h4' sx={{m:2, color:'#F5E8C7'}}>¡Los más vendidos!</Typography>

@@ -1,7 +1,7 @@
 import * as React from 'react';
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
-import logoVertical from '../../../public/images/logos/logo_vertical_2.png'
+// import logoVertical from '../../../public/images/logos/logo_vertical_2.png'
 import Typography from '@mui/material/Typography';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
@@ -19,6 +19,8 @@ import IconButton from '@mui/material/IconButton';
 import ListItemButton from '@mui/material/ListItemButton';
 
 const Footer = () => {
+
+  const logoVertical = '/images/logos/logo_vertical_2.PNG'
   const theme = createTheme({
     palette: {
       primary: {
