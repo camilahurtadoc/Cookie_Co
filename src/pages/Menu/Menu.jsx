@@ -44,10 +44,14 @@ const Menu = () => {
       <Box sx={{ display: 'flex', flexDirection: 'column', my: 2, mx: 10, p: 3 }}>
         <Typography variant='h4' sx={{ m: 2, color: 'primary' }}>Nuestros productos</Typography>
         <Grid container spacing={2} >
-          <Grid size={{ xs: 12, md: 4 }}>
-            <MenuCards img={cookie_avena_pasas} alt={'galleta avena y pasas'} title={'Cookie Avena y Pasas'} price={1000} id={1} />
-          </Grid>
-          <Grid size={{ xs: 12, md: 4 }}>
+          {
+            listaCookies.map(item => (
+              <Grid size={{ xs: 12, md: 4 }}>
+                <MenuCards key={item.id} img={item.imagen_url} alt={'cookie'} title={item.name} price={item.precio} id={item.id} />
+              </Grid>
+            ))
+          }
+          {/* <Grid size={{ xs: 12, md: 4 }}>
             <MenuCards img={cookie_blanco_negro} alt={'galleta chocolate blanco y negro'} title={'Cookie Cholocale Blanco y Negro'} price={2000} id={2} />
           </Grid>
           <Grid size={{ xs: 12, md: 4 }}>
@@ -67,7 +71,7 @@ const Menu = () => {
           </Grid>
           <Grid size={{ xs: 12, md: 4 }}>
             <MenuCards img={cookie_vegana_chip_chocolate_nueces} alt={'galleta vegana chip chocolates y nueves'} title={'Cookie Vegana Chip Chocolate y Nueces'} price={8000} id={8} />
-          </Grid>
+          </Grid> */}
         </Grid>
       </Box>
     </>
