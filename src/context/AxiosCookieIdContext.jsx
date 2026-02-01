@@ -8,7 +8,7 @@ const AxiosCookieIdProvider = ({ children }) => {
 
     async function getCookie(cookieId) {
         try {
-            const { data } = await axios.get(`http://localhost:3000/api/productos/${cookieId}`);
+            const { data } = await axios.get(`${import.meta.env.VITE_API_URL}/productos/${cookieId}`);
             setPizza(data)
         } catch (error) {
             console.error(error);

@@ -20,7 +20,7 @@ const Cart = () => {
   const sendCart = async () => {
 
     try {
-      const response = await fetch("http://localhost:3000/api/carrito", {
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/carrito`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

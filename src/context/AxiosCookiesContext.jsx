@@ -8,7 +8,7 @@ const AxiosCookiesProvider = ({ children }) => {
 
     async function getCookiesList() {
         try {
-            const data = (await axios.get('http://localhost:3000/api/productos')).data;
+            const data = (await axios.get(`${import.meta.env.VITE_API_URL}/productos`)).data;
             setListaCookies(data)
         } catch (error) {
             console.error(error);
