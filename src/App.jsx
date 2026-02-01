@@ -43,6 +43,7 @@ function App() {
       <Routes >
         <Route path='/' element={<Home />} />
         <Route path='/menu' element={<Menu />} />
+        <Route path='/menu/:cookieId' element={<Menu />} />
         <Route path='/locales' element={<Locations />} />
         <Route path='/blog' element={<Blog />} />
         <Route path='/carrito' element={<Cart />} />
