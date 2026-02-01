@@ -38,7 +38,7 @@ const Footer = () => {
   return (
     <ThemeProvider theme={theme}>
       {/* <CssBaseline /> */}
-      <Box sx={{ flexGrow: 1, backgroundColor: '#5C4033', color: 'secondary', py: 2, px: 10 }}>
+      <Box sx={{ backgroundColor: '#5C4033', color: 'secondary', py: 2, px: 10, mt:'auto' }}>
         <Grid container spacing={2} sx={{ mt: 3 }}>
           <Grid size={{ xs: 12, md: 3 }} sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
             <Box

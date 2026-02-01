@@ -21,6 +21,7 @@ import { useContext, useEffect } from 'react';
 import { UserContext } from './context/UserContext';
 import { CartContext } from './context/CartContext';
 import CookiePage from './pages/CookiePage/CookiePage';
+import Box from '@mui/material/Box';
 
 
 function App() {
@@ -38,7 +39,7 @@ function App() {
   }, [cart, total])
 
   return (
-    <>
+    <Box sx={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }} >
       {/* <Banner /> */}
       <Navbar />
       <Routes >
@@ -59,7 +60,7 @@ function App() {
       </Routes>
       <Footer />
 
-    </>
+    </Box>
   )
 }
 
