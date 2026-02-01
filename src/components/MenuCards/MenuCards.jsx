@@ -24,7 +24,7 @@ const MenuCards = ({ img, alt, title, price, id }) => {
 
     const navigate = useNavigate()
     const goToCookie = () => {
-        navigate(`/cookie/${id}`)
+        navigate(`/menu/${id}`)
     }
 
     useEffect(() => {
@@ -36,7 +36,7 @@ const MenuCards = ({ img, alt, title, price, id }) => {
     return (
         <>
             <Card sx={{ maxWidth: 345,  margin: 'auto' }}>
-                <CardActionArea >
+                <CardActionArea onClick={goToCookie}>
                     <CardMedia
                         component="img"
                         height="250"

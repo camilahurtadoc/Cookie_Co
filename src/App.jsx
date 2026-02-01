@@ -20,6 +20,7 @@ import './App.css'
 import { useContext, useEffect } from 'react';
 import { UserContext } from './context/UserContext';
 import { CartContext } from './context/CartContext';
+import CookiePage from './pages/CookiePage/CookiePage';
 
 
 function App() {
@@ -43,7 +44,7 @@ function App() {
       <Routes >
         <Route path='/' element={<Home />} />
         <Route path='/menu' element={<Menu />} />
-        <Route path='/menu/:cookieId' element={<Menu />} />
+        <Route path='/menu/:cookieId' element={<CookiePage />} />
         <Route path='/locales' element={<Locations />} />
         <Route path='/blog' element={<Blog />} />
         <Route path='/carrito' element={<Cart />} />
