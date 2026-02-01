@@ -21,7 +21,7 @@ const Highlights = () => {
       <Typography variant='h4' sx={{ m: 2, color: '#F5E8C7' }}>¡Los más vendidos!</Typography>
       <Box sx={{ display: 'flex', justifyContent: 'space-between', gap: 2 }}>
         {
-          listaCookies.map(item => (
+          listaCookies.slice(0, 3).map(item => (
             <HighlightsCard key={item.id} alt={'cookie'} img={item.imagen_url} title={item.name} price={item.precio} desc={item.description} />
           ))
         }
