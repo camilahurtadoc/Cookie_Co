@@ -38,7 +38,7 @@ const Menu = () => {
     <>
       <MenuHeroSection
         title={'Pide Aquí'}
-        desc={'Pide aquí las galletas que pide tu corazón. Hechas con amor y dedicación, listas para llegar y disfrutar en la comodidad de tu casa.'}
+        desc={'Pide aquí las galletas que pide tu corazón. Hechas con amor y dedicación, listas para llevar y disfrutar en la comodidad de tu casa.'}
         img={fotoTienda}
       />
       <Box sx={{ display: 'flex', flexDirection: 'column', my: 2, mx: 10, p: 3 }}>
