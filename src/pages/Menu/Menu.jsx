@@ -46,7 +46,7 @@ const Menu = () => {
         <Grid container spacing={2} >
           {
             listaCookies.map(item => (
-              <Grid key={item.id} size={{ xs: 12, md: 4 }}>
+              <Grid key={item.id} size={{ xs: 12, md: 6, lg:4 }}>
                 <MenuCards img={item.imagen_url} alt={'cookie'} title={item.name} price={item.precio} id={item.id} />
               </Grid>
             ))

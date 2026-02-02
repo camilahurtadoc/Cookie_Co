@@ -35,7 +35,7 @@ const MenuCards = ({ img, alt, title, price, id }) => {
 
     return (
         <>
-            <Card sx={{ maxWidth: 345,  margin: 'auto' }}>
+            <Card sx={{ maxWidth: 370,  margin: 'auto' }}>
                 <CardActionArea onClick={goToCookie}>
                     <CardMedia
                         component="img"
