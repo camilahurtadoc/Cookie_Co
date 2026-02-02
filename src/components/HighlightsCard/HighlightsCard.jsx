@@ -25,7 +25,7 @@ const HighlightsCard = ({ alt, img, title, price, desc }) => {
                         {title}
                     </Typography>
                     <Typography gutterBottom variant="subtitle2" component="div" color='#A84A2E' >
-                        ${price}
+                        ${price.toLocaleString("es-ES", { useGrouping: true })}
                     </Typography>
                 </Box>
                 <Divider variant="middle" />
