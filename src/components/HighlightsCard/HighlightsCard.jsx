@@ -9,42 +9,52 @@ import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import DeliveryDiningIcon from '@mui/icons-material/DeliveryDining';
 import Divider from '@mui/material/Divider';
+import { useNavigate } from 'react-router-dom';
+import CardActionArea from '@mui/material/CardActionArea';
 
-const HighlightsCard = ({ alt, img, title, price, desc }) => {
+const HighlightsCard = ({ alt, img, title, price, desc, id }) => {
+
+    const navigate = useNavigate()
+    const goToCookie = () => {
+        navigate(`/menu/${id}`)
+    }
+
     return (
         <Card sx={{ maxWidth: 345 }} >
-            <CardMedia
-                component="img"
-                alt={alt}
-                height="250"
-                image={img}
-            />
-            <CardContent>
-                <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                    <Typography gutterBottom variant="h6" component="div" >
-                        {title}
+            <CardActionArea onClick={goToCookie}>
+                <CardMedia
+                    component="img"
+                    alt={alt}
+                    height="250"
+                    image={img}
+                />
+                <CardContent>
+                    <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                        <Typography gutterBottom variant="h6" component="div" >
+                            {title}
+                        </Typography>
+                        <Typography gutterBottom variant="subtitle2" component="div" color='#A84A2E' >
+                            ${price.toLocaleString("es-ES", { useGrouping: true })}
+                        </Typography>
+                    </Box>
+                    <Divider variant="middle" />
+                    <Typography variant="body2"
+                        sx={{
+                            color: 'text.secondary',
+                            pt: 3,
+                            display: '-webkit-box',
+                            overflow: 'hidden',
+                            WebkitBoxOrient: 'vertical',
+                            WebkitLineClamp: 2,
+                        }} >
+                        {desc}
                     </Typography>
-                    <Typography gutterBottom variant="subtitle2" component="div" color='#A84A2E' >
-                        ${price.toLocaleString("es-ES", { useGrouping: true })}
-                    </Typography>
-                </Box>
-                <Divider variant="middle" />
-                <Typography variant="body2"
-                    sx={{
-                        color: 'text.secondary',
-                        pt: 3,
-                        display: '-webkit-box',
-                        overflow: 'hidden',
-                        WebkitBoxOrient: 'vertical',
-                        WebkitLineClamp: 2,
-                    }} >
-                    {desc}
-                </Typography>
-            </CardContent>
+                </CardContent>
 
-            <CardActions>
-                <Button size="small" sx={{ color: "#333333", ml:1 }}>Pide a domicilio <DeliveryDiningIcon sx={{ mx: 1 }} /></Button>
-            </CardActions>
+                <CardActions>
+                    <Button size="small" sx={{ color: "#333333", ml: 1 }}>Pide a domicilio <DeliveryDiningIcon sx={{ mx: 1 }} /></Button>
+                </CardActions>
+            </CardActionArea>
         </Card>
     )
 }

@@ -22,7 +22,7 @@ const Highlights = () => {
       <Box sx={{ display: 'flex', justifyContent: 'space-between', gap: 2 }}>
         {
           listaCookies.slice(0, 3).map(item => (
-            <HighlightsCard key={item.id} alt={'cookie'} img={item.imagen_url} title={item.name} price={item.precio} desc={item.description} />
+            <HighlightsCard key={item.id} alt={'cookie'} img={item.imagen_url} title={item.name} price={item.precio} desc={item.description} id={item.id}/>
           ))
         }
       </Box>
