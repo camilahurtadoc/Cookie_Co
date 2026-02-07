@@ -17,6 +17,8 @@ import XIcon from '@mui/icons-material/X';
 import WhatsAppIcon from '@mui/icons-material/WhatsApp';
 import IconButton from '@mui/material/IconButton';
 import ListItemButton from '@mui/material/ListItemButton';
+import Card from '@mui/material/Card';
+import CardMedia from '@mui/material/CardMedia';
 
 const Footer = () => {
 
@@ -30,23 +32,41 @@ const Footer = () => {
         main: '#EDE4D9',
       },
       customLinkColor: {
-      main: '#EDE4D9', // Example custom link color
-    },
+        main: '#EDE4D9', // Example custom link color
+      },
     },
   });
 
   return (
     <ThemeProvider theme={theme}>
       {/* <CssBaseline /> */}
-      <Box sx={{ backgroundColor: '#5C4033', color: 'secondary', py: 2, px: 10, mt:'auto' }}>
-        <Grid container spacing={2} sx={{ mt: 3 }}>
-          <Grid size={{ xs: 12, md: 3 }} sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-            <Box
+      <Box sx={{ backgroundColor: '#5C4033', color: 'secondary', py: 2, mt: 'auto', width: '100%' }}>
+        <Grid container spacing={2} sx={{ mt: 3, px: { xs: 2, md: 15 } }}>
+          {/* <Grid size={{ xs: 0, md: 1 }}></Grid> */}
+          <Grid size={{ xs: 12, md: 3 }} >
+            <Card sx={{
+              maxWidth: { xs: 180, md: 230 },
+              width: '100%',
+              boxShadow: 'none',
+              backgroundColor: 'transparent'
+            }}>
+              <CardMedia
+                component="img"
+                image={logoVertical}
+                alt="logo"
+                sx={{
+                  width: '100%',
+                  height: 'auto',
+                  objectFit: 'contain'
+                }}
+              />
+            </Card>
+            {/* <Box
               component='img'
-              sx={{ maxWidth: 230, maxHeight: 'auto' }}
+              sx={{ width: '100%', maxWidth: 230, height: 'auto', display: 'block' }}
               alt='logo'
               src={logoVertical}
-            />
+            /> */}
           </Grid>
           <Grid container size={{ xs: 12, md: 9 }}>
             <Grid size={{ xs: 12, md: 4 }}>
@@ -120,28 +140,28 @@ const Footer = () => {
               <Typography color='primary' variant='h6'>
                 Redes Sociales
               </Typography>
-              <List aria-label="navegación sobre nosotros" sx={{ display: 'flex' }}>
-                <ListItem disablePadding >
+              <List aria-label="navegación sobre nosotros" sx={{ display: 'flex', }} >
+                <ListItem disablePadding sx={{ width: 'auto' }} >
                   <IconButton href='https://workspace.google.com/intl/es/gmail/' target='_blank' rel='noopener noreferrer' aria-label='envíanos un email'>
                     <MailIcon sx={{ color: '#EDE4D9' }} />
                   </IconButton>
                 </ListItem>
-                <ListItem disablePadding >
+                <ListItem disablePadding sx={{ width: 'auto' }} >
                   <IconButton href='https://www.instagram.com/' target='_blank' rel='noopener noreferrer' aria-label='visita nuestro instagram'>
                     <InstagramIcon sx={{ color: '#EDE4D9' }} />
                   </IconButton>
                 </ListItem>
-                <ListItem disablePadding >
+                <ListItem disablePadding sx={{ width: 'auto' }} >
                   <IconButton href='https://www.facebook.com/' target='_blank' rel='noopener noreferrer' aria-label='visita nuestro facebook'>
                     <FacebookIcon sx={{ color: '#EDE4D9' }} />
                   </IconButton>
                 </ListItem>
-                <ListItem disablePadding >
+                <ListItem disablePadding sx={{ width: 'auto' }} >
                   <IconButton href='https://x.com/' target='_blank' rel='noopener noreferrer' aria-label='visitra nuestro twitter'>
                     <XIcon sx={{ color: '#EDE4D9' }} />
                   </IconButton>
                 </ListItem>
-                <ListItem disablePadding >
+                <ListItem disablePadding sx={{ width: 'auto' }} >
                   <IconButton href='https://www.whatsapp.com/' target='_blank' rel='noopener noreferrer' aria-label='envíanos un mensaje por whatsapp'>
                     <WhatsAppIcon sx={{ color: '#EDE4D9' }} />
                   </IconButton>
@@ -149,6 +169,7 @@ const Footer = () => {
               </List>
             </Grid>
           </Grid>
+          {/* <Grid size={{ xs: 0, md: 1 }}></Grid> */}
         </Grid>
       </Box>
     </ThemeProvider>

@@ -20,7 +20,7 @@ const HighlightsCard = ({ alt, img, title, price, desc, id }) => {
     }
 
     return (
-        <Card sx={{ maxWidth: 345 }} >
+        <Card sx={{ maxWidth: {xs:'auto', md:345} }} >
             <CardActionArea onClick={goToCookie}>
                 <CardMedia
                     component="img"
@@ -51,9 +51,10 @@ const HighlightsCard = ({ alt, img, title, price, desc, id }) => {
                     </Typography>
                 </CardContent>
 
-                <CardActions>
-                    <Button size="small" sx={{ color: "#333333", ml: 1 }}>Pide a domicilio <DeliveryDiningIcon sx={{ mx: 1 }} /></Button>
-                </CardActions>
+                <Box sx={{display:'flex', alignItems:'center', gap:1, mb:2}}>
+                    <Typography variant='button' fontSize={'small'} align='center' sx={{ color: "#333333", ml: 2 }}>Pide a domicilio </Typography>
+                    <DeliveryDiningIcon />
+                </Box>
             </CardActionArea>
         </Card>
     )

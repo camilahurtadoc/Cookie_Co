@@ -15,22 +15,24 @@ const Testimonials = () => {
   const imgMan2 = '/images/ratings/man2.jpg'
   const imgWoman = '/images/ratings/woman.jpg'
   const imgWoman2 = '/images/ratings/woman2.jpg'
-  
+
   return (
     <>
-      <Box sx={{ flexGrow: 1, px: 15, py:5, backgroundColor: '#EDE4D9' }}>
-        <Typography variant='h4' sx={{ m: 2 }}>Testimonios</Typography>
-        <Grid container spacing={2}>
+      <Box sx={{ py: 5, backgroundColor: '#EDE4D9', width: '100%', maxWidth: '100vw' }}>
+        <Grid container spacing={2} sx={{ px: { xs: 2, md: 15 } }}>
+          <Grid size={12}>
+            <Typography variant='h4' sx={{ m: 2 }}>Testimonios</Typography>
+          </Grid>
           <Grid size={{ xs: 12, md: 3 }}>
             <TestimonialsCard rating={5} name={'Oscar'} img={imgMan} review={'Mis galletas favoritas, son lo mejor.'} />
           </Grid>
-          <Grid size={{ xs: 6, md: 3 }}>
+          <Grid size={{ xs: 12, md: 3 }}>
             <TestimonialsCard rating={5} name={'Marlenne'} img={imgWoman} review={'Siempre me suben el ánimo.'} />
           </Grid>
-          <Grid size={{ xs: 6, md: 3 }}>
+          <Grid size={{ xs: 12, md: 3 }}>
             <TestimonialsCard rating={5} name={'Flavia'} img={imgWoman2} review={'Perfectas para la once.'} />
           </Grid>
-          <Grid size={{ xs: 6, md: 3 }}>
+          <Grid size={{ xs: 12, md: 3 }}>
             <TestimonialsCard rating={5} name={'Carlos'} img={imgMan2} review={'No puedo parar de comerlas jajaja'} />
           </Grid>
         </Grid>

@@ -39,7 +39,7 @@ function App() {
   }, [cart, total])
 
   return (
-    <Box sx={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }} >
+    <Box sx={{ display: 'flex', flexDirection: 'column', minHeight: '100vh', width:'100%' }} >
       {/* <Banner /> */}
       <Navbar />
       <Routes >

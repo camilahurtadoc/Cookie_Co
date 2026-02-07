@@ -38,6 +38,7 @@ const settings = ['Perfil', 'Mis Pedidos', 'Direcciones', 'Favoritos'];
 function ResponsiveAppBar() {
 
     const logoHorizontal = '/images/logos/logo_horizontal_bg_4.PNG'
+    const logoSinTexto = '/images/logos/logo_sin_texto_1.png'
 
     const [anchorElNav, setAnchorElNav] = useState(null);
     const [anchorElUser, setAnchorElUser] = useState(null);
@@ -70,8 +71,8 @@ function ResponsiveAppBar() {
     return (
         <ThemeProvider theme={theme}>
 
-            <AppBar position="static" sx={{ width: '100%', px: 12 }}>
-                <Container maxWidth="xl" >
+            <AppBar position="static" sx={{ width: '100%', maxWidth: '100vw' }}>
+                <Container maxWidth="xl" disableGutters sx={{ px: { xs: 2, md: 12 } }}>
                     <Toolbar disableGutters>
                         <Box
                             component='img'
@@ -80,7 +81,7 @@ function ResponsiveAppBar() {
                             src={logoHorizontal}
                         />
 
-                        <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }} >
+                        <Box sx={{ display: { xs: 'flex', md: 'none' } }} >
                             <IconButton
                                 size="large"
                                 aria-label="account of current user"
@@ -124,16 +125,25 @@ function ResponsiveAppBar() {
                                 <MenuItem onClick={handleCloseNavMenu} component={RouterLink} to='/blog'>
                                     <Typography sx={{ textAlign: 'center' }} color='primary' >Blog</Typography>
                                 </MenuItem>
-                                <MenuItem onClick={handleCloseNavMenu} component={RouterLink} to='/login'>
-                                    <Typography sx={{ textAlign: 'center' }} color='primary' >Mi Cuenta</Typography>
-                                </MenuItem>
+                                {
+                                    tokenJwt ? (
+                                        <MenuItem onClick={handleCloseNavMenu} component={RouterLink} to='/perfil'>
+                                            <Typography sx={{ textAlign: 'center' }} color='primary' >Mi Cuenta</Typography>
+                                        </MenuItem>
+                                    ) : (
+                                        <MenuItem onClick={handleCloseNavMenu} component={RouterLink} to='/login'>
+                                            <Typography sx={{ textAlign: 'center' }} color='primary' >Mi Cuenta</Typography>
+                                        </MenuItem>
+                                    )
+                                }
+
                             </Menu>
                         </Box>
                         <Box
                             component='img'
-                            sx={{ maxWidth: 180, display: { xs: 'flex', md: 'none' } }}
+                            sx={{ maxWidth: 100, display: { xs: 'flex', md: 'none' } }}
                             alt='logo'
-                            src={logoHorizontal}
+                            src={logoSinTexto}
                         />
                         <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
                             {/* {pages.map((page) => (
@@ -234,30 +244,30 @@ function ResponsiveAppBar() {
                         <Box sx={{ ml: 3, display: 'flex', alignItems: 'center' }}>
                             {
                                 tokenJwt ? (
-                                    <>
+                                    <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
                                         <Button component={RouterLink} to='/perfil' sx={{ my: 2, display: 'block' }} color='secondary' >
                                             Mi Cuenta
                                         </Button>
                                         <Button component={RouterLink} to='/logout' sx={{ my: 2, display: 'block' }} color='secondary' >
                                             Cerrar Sesión
                                         </Button>
-                                    </>
+                                    </Box>
                                 ) : (
-                                    <>
+                                    <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
                                         <Button component={RouterLink} to='/login' sx={{ my: 2, display: 'block' }} color='secondary' >
                                             Login
                                         </Button>
                                         <Button component={RouterLink} to='/register' sx={{ my: 2, display: 'block' }} color='secondary' >
                                             Register
                                         </Button>
-                                    </>
+                                    </Box>
                                 )
                             }
-                            <Button component={RouterLink} to='/carrito' >
+                            <Button component={RouterLink} to='/carrito' sx={{ minWidth: 'auto' }}>
                                 <Badge color='secondary' badgeContent={cartCount}>
                                     <ShoppingCartIcon fontSize="large" sx={{ color: '#F5E8C7' }} />
                                 </Badge>
-                                <Typography variant='button' sx={{ color: '#F5E8C7', ml: 2 }}>
+                                <Typography variant='button' sx={{ color: '#F5E8C7', ml: 2, display: { xs: 'none', md: 'block' } }}>
                                     Total: ${total.toLocaleString("es-ES", { useGrouping: true })}
                                 </Typography>
                             </Button>
