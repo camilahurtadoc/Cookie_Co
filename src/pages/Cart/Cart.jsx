@@ -8,6 +8,7 @@ import CartCard from '../../components/CartCard/CartCard'
 import Button from '@mui/material/Button'
 import { CartContext } from '../../context/CartContext'
 import { UserContext } from '../../context/UserContext'
+import Grid from '@mui/material/Grid'
 
 
 const Cart = () => {
@@ -50,35 +51,27 @@ const Cart = () => {
 
   return (
     <>
-      <Box sx={{ display: 'flex', flexDirection: 'column', my: 2, mx: 10, p: 3 }} >
-        <Typography variant='h5'>Cantidad de items:</Typography>
+      <Box sx={{ display: 'flex', flexDirection: 'column', my: 2, p: 3 }} >
+        <Grid container spacing={2} sx={{ px: { xs: 2, md: 15 } }} >
+          <Grid size={12}>
+            <Typography variant='h5'>Carrito</Typography>
+          </Grid>
 
-        {
-          cart.map(cookie => (
-            <Box key={cookie.id}>
-              <CartCard img={cookie.img} alt={''} title={cookie.name} price={cookie.price} count={cookie.count} id={cookie.id}/>
-            </Box>
-          ))
-        }
-
-        {/* // <Box>
-        //   <Box my={1}>
-        //     <CartCard img={cookie_chocolate_amargo_chip_mantequila_mani} alt={'galleta chocolate amargo y mantequilla maní'} title={'Cookie Chocolate y Chips de Mantequilla Maní'} price={6000} />
-        //   </Box>
-        //   <Box my={1}>
-        //     <CartCard img={cookie_doble_chip_chocolate} alt={'galleta doble chip chocolate'} title={'Cookie Doble Chip Chocolate'} price={7000} />
-        //   </Box>
-        //   <Box my={1}>
-        //     <CartCard img={cookie_vegana_chip_chocolate_nueces} alt={'galleta vegana chip chocolates y nueves'} title={'Cookie Vegana Chip Chocolate y Nueces'} price={8000} />
-        //   </Box>
-        // </Box> */}
-        {
-          total === 0 ? <Typography variant='h6' align='center'>Tu carrito está vacío.</Typography> : null
-        }
-        <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', mt: 3 }}>
-          <Typography variant='h5'>Total: ${total.toLocaleString("es-ES", { useGrouping: true })}</Typography>
-          <Button disabled={!tokenJwt} onClick={sendCart} variant='contained' sx={{ px: 4, backgroundColor: '#A84A2E' }}>Pagar</Button>
-        </Box>
+          {
+            cart.map(cookie => (
+              <Grid size={12} key={cookie.id} >
+                <CartCard img={cookie.img} alt={''} title={cookie.name} price={cookie.price} count={cookie.count} id={cookie.id} />
+              </Grid>
+            ))
+          }
+          {
+            total === 0 ? <Typography variant='h6' align='center'>Tu carrito está vacío.</Typography> : null
+          }
+          <Grid size={12} sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', mt: 3 }}>
+            <Typography variant='h5'>Total: ${total.toLocaleString("es-ES", { useGrouping: true })}</Typography>
+            <Button disabled={!tokenJwt} onClick={sendCart} variant='contained' sx={{ px: 6, backgroundColor: '#A84A2E' }}>Pagar</Button>
+          </Grid>
+        </Grid>
       </Box>
     </>
   )
