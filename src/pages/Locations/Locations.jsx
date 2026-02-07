@@ -14,6 +14,53 @@ const Locations = () => {
   const exterior3 = '/images/tienda/exterior3.jpg'
   const mapImage = '/images/tienda/map.JPG'
 
+  const locationsList = [
+    {
+      img: '/images/tienda/map.JPG',
+      alt: 'mapa',
+      shopName: 'Local Manuel Montt',
+      address: 'Manuel Montt 3245, local 12, Providencia',
+      phoneNumber: '+56 9 1234 5678',
+      email: 'manuelmontt@cookieco.cl',
+      horarioLV: '9:00 a 20:00',
+      horarioS: '9:00 a 14:00',
+      horarioD: 'Cerrado'
+    },
+    {
+      img: '/images/tienda/map.JPG',
+      alt: 'mapa',
+      shopName: 'Local Manuel Montt',
+      address: 'Manuel Montt 3245, local 12, Providencia',
+      phoneNumber: '+56 9 1234 5678',
+      email: 'manuelmontt@cookieco.cl',
+      horarioLV: '9:00 a 20:00',
+      horarioS: '9:00 a 14:00',
+      horarioD: 'Cerrado'
+    },
+    {
+      img: '/images/tienda/map.JPG',
+      alt: 'mapa',
+      shopName: 'Local Manuel Montt',
+      address: 'Manuel Montt 3245, local 12, Providencia',
+      phoneNumber: '+56 9 1234 5678',
+      email: 'manuelmontt@cookieco.cl',
+      horarioLV: '9:00 a 20:00',
+      horarioS: '9:00 a 14:00',
+      horarioD: 'Cerrado'
+    },
+    {
+      img: '/images/tienda/map.JPG',
+      alt: 'mapa',
+      shopName: 'Local Manuel Montt',
+      address: 'Manuel Montt 3245, local 12, Providencia',
+      phoneNumber: '+56 9 1234 5678',
+      email: 'manuelmontt@cookieco.cl',
+      horarioLV: '9:00 a 20:00',
+      horarioS: '9:00 a 14:00',
+      horarioD: 'Cerrado'
+    },
+  ]
+
   return (
     <>
       <MenuHeroSection
@@ -21,61 +68,28 @@ const Locations = () => {
         desc={'Encuentra tu local más cercano y visítanos! Podrás comprar directamente, aprovechar descuentos exclusivos en tienda y disfrutar tus galletas favoritas en un ambiente tranquilo y agradable.'}
         img={exterior2}
       />
-      <Box sx={{ display: 'flex', flexDirection: 'column', my: 2, mx: 10, p: 3 }}>
-        <Typography variant='h4' sx={{ m: 2, color: 'primary' }}>Tiendas</Typography>
-        <Grid container spacing={2}>
-          <Grid size={{ xs: 12 }}>
-            <LocationsCard
-              img={mapImage}
-              alt={'mapa'}
-              shopName={'Local Manuel Montt'}
-              address={'Manuel Montt 3245, local 12, Providencia'}
-              phoneNumber={'+56 9 1234 5678'}
-              email={'manuelmontt@cookieco.cl'}
-              horarioLV={'9:00 a 20:00'}
-              horarioS={'9:00 a 14:00'}
-              horarioD={'Cerrado'}
-            />
+      <Box sx={{ display: 'flex', flexDirection: 'column', my: 2, p: 3 }}>
+        <Grid container spacing={2} sx={{ px: { xs: 2, md: 15 } }} >
+          <Grid size={12}>
+            <Typography variant='h4' sx={{ m: 2, color: 'primary' }}>Tiendas</Typography>
           </Grid>
-          <Grid size={{ xs: 12 }}>
-            <LocationsCard
-              img={mapImage}
-              alt={'mapa'}
-              shopName={'Local Manuel Montt'}
-              address={'Manuel Montt 3245, local 12, Providencia'}
-              phoneNumber={'+56 9 1234 5678'}
-              email={'manuelmontt@cookieco.cl'}
-              horarioLV={'9:00 a 20:00'}
-              horarioS={'9:00 a 14:00'}
-              horarioD={'Cerrado'}
-            />
-          </Grid>
-          <Grid size={{ xs: 12 }}>
-            <LocationsCard
-              img={mapImage}
-              alt={'mapa'}
-              shopName={'Local Manuel Montt'}
-              address={'Manuel Montt 3245, local 12, Providencia'}
-              phoneNumber={'+56 9 1234 5678'}
-              email={'manuelmontt@cookieco.cl'}
-              horarioLV={'9:00 a 20:00'}
-              horarioS={'9:00 a 14:00'}
-              horarioD={'Cerrado'}
-            />
-          </Grid>
-          <Grid size={{ xs: 12 }}>
-            <LocationsCard
-              img={mapImage}
-              alt={'mapa'}
-              shopName={'Local Manuel Montt'}
-              address={'Manuel Montt 3245, local 12, Providencia'}
-              phoneNumber={'+56 9 1234 5678'}
-              email={'manuelmontt@cookieco.cl'}
-              horarioLV={'9:00 a 20:00'}
-              horarioS={'9:00 a 14:00'}
-              horarioD={'Cerrado'}
-            />
-          </Grid>
+          {
+            locationsList.map(local => (
+              <Grid size={{ xs: 12, md: 6 }} sx={{ display: 'flex', justifyContent: 'center' }}>
+                <LocationsCard
+                  img={local.img}
+                  alt={local.alt}
+                  shopName={local.shopName}
+                  address={local.address}
+                  phoneNumber={local.phoneNumber}
+                  email={local.email}
+                  horarioLV={local.horarioLV}
+                  horarioS={local.horarioS}
+                  horarioD={local.horarioD}
+                />
+              </Grid>
+            ))
+          }
         </Grid>
       </Box>
     </>
