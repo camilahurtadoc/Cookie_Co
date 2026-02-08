@@ -186,6 +186,7 @@ const UserProvider = ({ children }) => {
     // consumo de ruta para datos de usuario en el perfil desde backend
 
     const [userEmail, setUserEmail] = useState(null)
+    const [userName, setUserName] = useState(null)
 
     const getUserInfo = async () => {
         setTokenJwt(localStorage.getItem("token_jwt"))
@@ -214,6 +215,7 @@ const UserProvider = ({ children }) => {
             const data = await response.json()
 
             setUserEmail(data.email)
+            setUserName(data.nombre)
 
         } catch (error) {
             console.log("error: ", error)
@@ -232,7 +234,7 @@ const UserProvider = ({ children }) => {
             nombre, setNombre,
             confirmPassword, setConfirmPassword,
             handleSubmitRegister,
-            getUserInfo, userEmail
+            getUserInfo, userEmail, userName
         }}>
             {children}
         </UserContext.Provider>
