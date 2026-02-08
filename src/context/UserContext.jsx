@@ -233,9 +233,12 @@ const UserProvider = ({ children }) => {
     const [userProvince, setUserProvince] = useState(null)
 
     const getUserInfo = async () => {
+        
+        const token = localStorage.getItem("token_jwt")
         setTokenJwt(localStorage.getItem("token_jwt"))
 
-        if (!tokenJwt) {
+
+        if (!token) {
             console.log("El usuario no posee token")
             return
         }

@@ -22,6 +22,7 @@ import { UserContext } from './context/UserContext';
 import { CartContext } from './context/CartContext';
 import CookiePage from './pages/CookiePage/CookiePage';
 import Box from '@mui/material/Box';
+import CartPayment from './pages/CartPayment/CartPayment';
 
 
 function App() {
@@ -50,6 +51,7 @@ function App() {
         <Route path='/locales' element={<Locations />} />
         <Route path='/blog' element={<Blog />} />
         <Route path='/carrito' element={<Cart />} />
+        <Route path='/pago' element={tokenJwt ? <CartPayment /> : <Navigate to="/carrito" /> }/>
         <Route path='/login' element={tokenJwt ? <Navigate to="/" /> : <Login />} />
         <Route path='/register' element={tokenJwt ? <Navigate to="/" /> : <Register />} />
         <Route path='/logout' element={tokenJwt ? <Logout /> : <Navigate to="/" />} />

@@ -10,26 +10,21 @@ import { CartContext } from '../../context/CartContext'
 import { UserContext } from '../../context/UserContext'
 import Grid from '@mui/material/Grid'
 import Swal from 'sweetalert2'
-import { useNavigate } from 'react-router-dom'
 
 
-const Cart = () => {
+const CartPayment = () => {
 
   const { total, setTotal, cart, setCart,
     cartBackend, setCartBackend,
-    cartDetailsBackend, setCartDetailsBackend,
-    lastCartBackend, setLastCartBackend,
-    lastOrderBackend, setLastOrderBackend } = useContext(CartContext)
+    cartDetailsBackend, setCartDetailsBackend } = useContext(CartContext)
 
   const { tokenJwt, getUserInfo, userId,
     userOrderBackend, setUserOrderBackend,
     userOrderDetailsBackend, setUserOrderDetailsBackend } = useContext(UserContext)
 
   useEffect(() => {
-    getUserInfo()
-  }, [])
-
-  const navigate = useNavigate()
+    // getUserInfo()
+  })
 
   const sendCart = async () => {
 
@@ -46,7 +41,7 @@ const Cart = () => {
     //   fecha_creacion: null
     // })
 
-    //POST cart with user id (no details)
+    //send cart with user id
     try {
       const response = await fetch(`http://localhost:3000/api/carrito`, {
         // const response = await fetch(`${import.meta.env.VITE_API_URL}/carrito`, {
@@ -63,11 +58,11 @@ const Cart = () => {
       }
 
       if (response.ok) {
-        // Swal.fire({
-        //   title: "Carrito Enviado",
-        //   text: "Su carrito ha sido registrado correctamente.",
-        //   icon: "success"
-        // })
+        Swal.fire({
+          title: "Carrito Enviado",
+          text: "Su carrito ha sido registrado correctamente.",
+          icon: "success"
+        })
 
 
       }
@@ -77,7 +72,7 @@ const Cart = () => {
     }
 
 
-    //POST product order with user id (no details)
+    //send cart with product details
     try {
       const response = await fetch(`http://localhost:3000/api/ordenes`, {
         // const response = await fetch(`${import.meta.env.VITE_API_URL}/ordenes`, {
@@ -94,84 +89,18 @@ const Cart = () => {
       }
 
       if (response.ok) {
-        // Swal.fire({
-        //   title: "Pedido Enviado!",
-        //   text: "Su pedido ha sido registrado correctamente.",
-        //   icon: "success"
-        // })
+        Swal.fire({
+          title: "Pedido Enviado!",
+          text: "Su pedido ha sido registrado correctamente.",
+          icon: "success"
+        })
         // setCart([])
         // setTotal(0)
-        // navigate("/pago")
       }
 
     } catch (error) {
       console.log("error: ", error)
     }
-
-    //GET latest cart of user
-    try {
-      const response = await fetch(`http://localhost:3000/api/carrito/usuario/${userId}`, {
-        // const response = await fetch(`${import.meta.env.VITE_API_URL}/carrito/usuario/${userId}`, {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-          "Authorization": `Bearer ${tokenJwt}`
-        },
-      })
-
-      if (!response.ok) {
-        console.log("error al recibir carrito")
-        return
-      }
-
-      const data = await response.json()
-      // console.log('data carritos')
-      // console.log(data)
-      setLastCartBackend(data)
-
-    } catch (error) {
-      console.log("error: ", error)
-    }
-
-
-    //GET orders of user
-    try {
-      const response = await fetch(`http://localhost:3000/api/ordenes/usuario/${userId}`, {
-        // const response = await fetch(`${import.meta.env.VITE_API_URL}/ordenes/usuario/${userId}`, {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-          "Authorization": `Bearer ${tokenJwt}`
-        },
-      })
-
-      if (!response.ok) {
-        console.log("error al recibir carrito")
-        return
-      }
-
-      const data = await response.json()
-      const latestOrder = data.reduce((max, order) => order.id > max.id ? order : max, data[0])
-      setLastOrderBackend(latestOrder)
-      if (response.ok) {
-        // Swal.fire({
-        //   title: "Pedido Enviado!",
-        //   text: "Su pedido ha sido registrado correctamente.",
-        //   icon: "success"
-        // })
-        // setCart([])
-        // setTotal(0)
-        navigate("/pago")
-      }
-
-    } catch (error) {
-      console.log("error: ", error)
-    }
-
-
-
-
-
 
   }
 
@@ -183,7 +112,7 @@ const Cart = () => {
       <Box sx={{ display: 'flex', flexDirection: 'column', my: 2, p: 3 }} >
         <Grid container spacing={2} sx={{ px: { xs: 2, md: 15 } }} >
           <Grid size={12}>
-            <Typography variant='h5'>Carrito</Typography>
+            <Typography variant='h5'>Confirmación de Pedido</Typography>
           </Grid>
 
           {
@@ -198,7 +127,7 @@ const Cart = () => {
           }
           <Grid size={12} sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', mt: 3 }}>
             <Typography variant='h5'>Total: ${total.toLocaleString("es-ES", { useGrouping: true })}</Typography>
-            <Button disabled={!tokenJwt} onClick={sendCart} variant='contained' sx={{ px: 6, backgroundColor: '#A84A2E' }}>Confirmar Pedido</Button>
+            <Button disabled={!tokenJwt} onClick={sendCart} variant='contained' sx={{ px: 6, backgroundColor: '#A84A2E' }}>Pagar</Button>
           </Grid>
         </Grid>
       </Box>
@@ -206,4 +135,4 @@ const Cart = () => {
   )
 }
 
-export default Cart
+export default CartPayment

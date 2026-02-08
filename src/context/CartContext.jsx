@@ -23,6 +23,9 @@ const CartProvider = ({ children }) => {
         return storedCartDetailsBackend ? JSON.parse(storedCartDetailsBackend) : []
     })
 
+    const [lastCartBackend, setLastCartBackend] = useState(null)
+    const [lastOrderBackend, setLastOrderBackend] = useState(null)
+
     const handleclick2 = (name, price, img, id) => {
 
         const cookieToAdd = {
@@ -114,7 +117,9 @@ const CartProvider = ({ children }) => {
                 minusCookie2, plusCookie2,
                 cartCount, cartCounter,
                 cartBackend, setCartBackend,
-                cartDetailsBackend, setCartDetailsBackend
+                cartDetailsBackend, setCartDetailsBackend,
+                lastCartBackend, setLastCartBackend,
+                lastOrderBackend, setLastOrderBackend
             }}>
             {children}
         </CartContext.Provider>
