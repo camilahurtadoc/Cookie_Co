@@ -23,6 +23,7 @@ const UserProvider = ({ children }) => {
         setUserCity(null)
         setUserProvince(null)
         setAllOrders(null)
+        setSpecificOrder(null)
     }
 
     // hook para redirigir usuario cuando haga login o register
@@ -45,6 +46,22 @@ const UserProvider = ({ children }) => {
     // State para email y password
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+
+    // State para generar pedido usuario enviado a backend
+    const [userOrderBackend, setUserOrderBackend] = useState({
+        id_usuario: null,
+        total_pagar: null,
+        status: null,
+        fecha_creacion: null
+    })
+
+    // State para detalles de pedido usuario enviado a backend
+    const [userOrderDetailsBackend, setUserOrderDetailsBackend] = useState({
+        id_orden: null,
+        id_producto: null,
+        cantidad: 0,
+        decha_creacion: null
+    })
 
     // Login
     // consumo de ruta para hacer login y entrega de token_jwt
@@ -101,6 +118,14 @@ const UserProvider = ({ children }) => {
                 })
 
                 navigate("/")
+                // getUserInfo()
+                const today = new Date()
+                // setUserOrderBackend({
+                //     id_usuario: userId,
+                //     total_pagar: null,
+                //     status: 'Pendiente',
+                //     fecha_creacion: null
+                // })
             }
 
         } catch (error) {
@@ -175,6 +200,14 @@ const UserProvider = ({ children }) => {
                 })
 
                 navigate("/")
+                // getUserInfo()
+                const today = new Date()
+                // setUserOrderBackend({
+                //     id_usuario: userId,
+                //     total_pagar: null,
+                //     status: 'Pendiente',
+                //     fecha_creacion: null
+                // })
             }
 
         } catch (error) {
@@ -274,7 +307,7 @@ const UserProvider = ({ children }) => {
         }
     }
 
-    
+
     //Profile specific order
     // consumo de ruta para detalle de pedido de usuario en el perfil desde backend
 
@@ -327,7 +360,9 @@ const UserProvider = ({ children }) => {
             getUserInfo, userId, userEmail, userName,
             userAddress, userCity, userProvince,
             getUserOrders, allOrders,
-            getUserSpecificOrder, specificOrder, setSpecificOrder
+            getUserSpecificOrder, specificOrder, setSpecificOrder,
+            userOrderBackend, setUserOrderBackend,
+            userOrderDetailsBackend, setUserOrderDetailsBackend
         }}>
             {children}
         </UserContext.Provider>

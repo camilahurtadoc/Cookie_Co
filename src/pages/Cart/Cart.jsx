@@ -1,6 +1,6 @@
 import Box from '@mui/material/Box'
 import Typography from '@mui/material/Typography'
-import React, { useContext } from 'react'
+import React, { useContext, useEffect } from 'react'
 import CartCard from '../../components/CartCard/CartCard'
 // import cookie_chocolate_amargo_chip_mantequila_mani from '../../assets/images/productos/cookies/chocolate_amargo_chip_mantequila_mani_md.avif'
 // import cookie_doble_chip_chocolate from '../../assets/images/productos/cookies/doble_chip_chocolate_md.avif'
@@ -9,26 +9,48 @@ import Button from '@mui/material/Button'
 import { CartContext } from '../../context/CartContext'
 import { UserContext } from '../../context/UserContext'
 import Grid from '@mui/material/Grid'
+import Swal from 'sweetalert2'
 
 
 const Cart = () => {
 
   const { total, setTotal, cart, setCart,
-    minusCookie2, plusCookie2 } = useContext(CartContext)
+    cartBackend, setCartBackend,
+    cartDetailsBackend, setCartDetailsBackend } = useContext(CartContext)
 
-  const { tokenJwt } = useContext(UserContext)
+  const { tokenJwt, getUserInfo, userId,
+    userOrderBackend, setUserOrderBackend,
+    userOrderDetailsBackend, setUserOrderDetailsBackend } = useContext(UserContext)
+
+  useEffect(() => {
+    getUserInfo()
+  })
 
   const sendCart = async () => {
-    console.log('cart:' + cart)
 
+    // const today = new Date()
+    // const todayISO = today.toISOString().split('T')[0]
+    // setCartBackend({
+    //   id_usuario: userId,
+    //   fecha_creacion: null
+    // })
+    // setUserOrderBackend({
+    //   id_usuario: userId,
+    //   total_pagar: total,
+    //   status: 'Pendiente',
+    //   fecha_creacion: null
+    // })
+
+    //send cart with user id
     try {
-      const response = await fetch(`${import.meta.env.VITE_API_URL}/carrito`, {
+      const response = await fetch(`http://localhost:3000/api/carrito`, {
+        // const response = await fetch(`${import.meta.env.VITE_API_URL}/carrito`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
           "Authorization": `Bearer ${tokenJwt}`
         },
-        body: JSON.stringify({ cart })
+        body: JSON.stringify({ id_usuario: userId, fecha_creacion: new Date() })
       })
 
       if (!response.ok) {
@@ -37,18 +59,53 @@ const Cart = () => {
 
       if (response.ok) {
         Swal.fire({
-          title: "Pedido Enviado",
-          text: "Su pedido ha sido registrado correctamente.",
+          title: "Carrito Enviado",
+          text: "Su carrito ha sido registrado correctamente.",
           icon: "success"
         })
-        setCart([])
-        setTotal(0)
+
+
       }
 
     } catch (error) {
       console.log("error: ", error)
     }
+
+
+    //send cart with product details
+    try {
+      const response = await fetch(`http://localhost:3000/api/ordenes`, {
+        // const response = await fetch(`${import.meta.env.VITE_API_URL}/ordenes`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "Authorization": `Bearer ${tokenJwt}`
+        },
+        body: JSON.stringify({ id_usuario: userId, total_pagar: total, status: 'Pendiente', fecha_creacion: new Date() })
+      })
+
+      if (!response.ok) {
+        console.log("error al enviar pedido")
+      }
+
+      if (response.ok) {
+        Swal.fire({
+          title: "Pedido Enviado!",
+          text: "Su pedido ha sido registrado correctamente.",
+          icon: "success"
+        })
+        // setCart([])
+        // setTotal(0)
+      }
+
+    } catch (error) {
+      console.log("error: ", error)
+    }
+
   }
+
+
+
 
   return (
     <>

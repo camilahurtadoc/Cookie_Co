@@ -27,7 +27,7 @@ import Box from '@mui/material/Box';
 function App() {
 
   const { tokenJwt, setTokenJwt } = useContext(UserContext)
-  const { cart, total } = useContext(CartContext)
+  const { cart, total, cartDetailsBackend } = useContext(CartContext)
 
   useEffect(() => {
     setTokenJwt(localStorage.getItem("token_jwt"))
@@ -36,7 +36,8 @@ function App() {
   useEffect(() => {
     localStorage.setItem("cart", JSON.stringify(cart))
     localStorage.setItem("total", total)
-  }, [cart, total])
+    localStorage.setItem("cartDetailsBackend", JSON.stringify(cartDetailsBackend))
+  }, [cart, total, cartDetailsBackend])
 
   return (
     <Box sx={{ display: 'flex', flexDirection: 'column', minHeight: '100vh', width:'100%' }} >
