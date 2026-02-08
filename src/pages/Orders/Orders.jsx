@@ -59,8 +59,8 @@ const Orders = () => {
                           <CardMedia
                             component="img"
                             height="160"
-                            image={listaCookies[order.id_producto].imagen_url}
-                            alt={listaCookies[order.id_producto].name}
+                            image={listaCookies? listaCookies[order.id_producto].imagen_url : ''}
+                            alt={listaCookies? listaCookies[order.id_producto].name : ''}
                             sx={{minWidth:200, maxWidth:400}}
                           />
                         </Box>

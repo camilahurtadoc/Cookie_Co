@@ -19,6 +19,7 @@ const Cart = () => {
   const { tokenJwt } = useContext(UserContext)
 
   const sendCart = async () => {
+    console.log('cart:' + cart)
 
     try {
       const response = await fetch(`${import.meta.env.VITE_API_URL}/carrito`, {
