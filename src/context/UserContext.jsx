@@ -274,6 +274,44 @@ const UserProvider = ({ children }) => {
         }
     }
 
+    
+    //Profile specific order
+    // consumo de ruta para detalle de pedido de usuario en el perfil desde backend
+
+    const [specificOrder, setSpecificOrder] = useState(null)
+
+    const getUserSpecificOrder = async (orderId) => {
+        setTokenJwt(localStorage.getItem("token_jwt"))
+
+        if (!tokenJwt) {
+            console.log("El usuario no posee token")
+            return
+        }
+
+        try {
+            const response = await fetch(`http://localhost:3000/api/ordenes/${orderId}/detalle`, {
+                // const response = await fetch(`${import.meta.env.VITE_API_URL}/ordenes/${orderId}/detalle`, {
+                method: "GET",
+                headers: {
+                    "Content-Type": "application/json",
+                    "Authorization": `Bearer ${tokenJwt}`
+                },
+            })
+
+
+            if (!response.ok) {
+                console.log("error en perfil usuario")
+                return
+            }
+
+            const data = await response.json()
+            setSpecificOrder(data)
+
+        } catch (error) {
+            console.log("error: ", error)
+        }
+    }
+
     return (
         <UserContext.Provider value={{
             tokenJwt, setTokenJwt,
@@ -288,7 +326,8 @@ const UserProvider = ({ children }) => {
             handleSubmitRegister,
             getUserInfo, userId, userEmail, userName,
             userAddress, userCity, userProvince,
-            getUserOrders, allOrders
+            getUserOrders, allOrders,
+            getUserSpecificOrder, specificOrder, setSpecificOrder
         }}>
             {children}
         </UserContext.Provider>

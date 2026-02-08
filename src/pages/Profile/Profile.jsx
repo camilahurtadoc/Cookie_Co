@@ -20,10 +20,15 @@ const Profile = () => {
 
   const { getUserInfo, userId, userEmail, userName,
     userAddress, userCity, userProvince,
-    getUserOrders, allOrders
+    getUserOrders, allOrders, getUserSpecificOrder
   } = useContext(UserContext)
 
   const navigate = useNavigate()
+
+  const handleClickOrder = (orderId) => {
+    getUserSpecificOrder(orderId)
+    navigate(`/perfil/${orderId}`)
+  }
 
   useEffect(() => {
     getUserInfo()
@@ -111,9 +116,9 @@ const Profile = () => {
                   {allOrders ? (allOrders.map(order => (
                     <TableRow key={order.id}>
                       <TableCell component="th" scope="row" sx={{}}>
-                        <Button component={RouterLink} to={`/perfil/${order.id}`}
+                        <Button onClick={() => handleClickOrder(order.id)}
                           sx={{
-                            display: 'block', fontWeight: 600, color: '#A84A2E',
+                            display: 'block', textAlign: 'left', fontWeight: 600, color: '#A84A2E',
                             '&:hover': {
                               textDecoration: 'underline',
                               transform: 'scale(1.05)',
