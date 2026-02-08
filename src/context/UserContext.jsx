@@ -16,6 +16,13 @@ const UserProvider = ({ children }) => {
         localStorage.clear()
         setTokenJwt("")
         setUserEmail(null)
+        setUserId(null)
+        setUserEmail(null)
+        setUserName(null)
+        setUserAddress(null)
+        setUserCity(null)
+        setUserProvince(null)
+        setAllOrders(null)
     }
 
     // hook para redirigir usuario cuando haga login o register
@@ -185,12 +192,15 @@ const UserProvider = ({ children }) => {
     // Profile
     // consumo de ruta para datos de usuario en el perfil desde backend
 
+    const [userId, setUserId] = useState(null)
     const [userEmail, setUserEmail] = useState(null)
     const [userName, setUserName] = useState(null)
+    const [userAddress, setUserAddress] = useState(null)
+    const [userCity, setUserCity] = useState(null)
+    const [userProvince, setUserProvince] = useState(null)
 
     const getUserInfo = async () => {
         setTokenJwt(localStorage.getItem("token_jwt"))
-
 
         if (!tokenJwt) {
             console.log("El usuario no posee token")
@@ -214,8 +224,50 @@ const UserProvider = ({ children }) => {
 
             const data = await response.json()
 
+            setUserId(data.id)
             setUserEmail(data.email)
             setUserName(data.nombre)
+            setUserAddress(data.direccion)
+            setUserCity(data.ciudad)
+            setUserProvince(data.comuna)
+
+        } catch (error) {
+            console.log("error: ", error)
+        }
+    }
+
+
+    //Profile orders
+    // consumo de ruta para compras de usuario en el perfil desde backend
+
+    const [allOrders, setAllOrders] = useState(null)
+
+    const getUserOrders = async (userId) => {
+        setTokenJwt(localStorage.getItem("token_jwt"))
+
+        if (!tokenJwt) {
+            console.log("El usuario no posee token")
+            return
+        }
+
+        try {
+            const response = await fetch(`http://localhost:3000/api/ordenes/usuario/${userId}`, {
+                // const response = await fetch(`${import.meta.env.VITE_API_URL}/ordenes/usuario/${userId}`, {
+                method: "GET",
+                headers: {
+                    "Content-Type": "application/json",
+                    "Authorization": `Bearer ${tokenJwt}`
+                },
+            })
+
+
+            if (!response.ok) {
+                console.log("error en perfil usuario")
+                return
+            }
+
+            const data = await response.json()
+            setAllOrders(data)
 
         } catch (error) {
             console.log("error: ", error)
@@ -234,7 +286,9 @@ const UserProvider = ({ children }) => {
             nombre, setNombre,
             confirmPassword, setConfirmPassword,
             handleSubmitRegister,
-            getUserInfo, userEmail, userName
+            getUserInfo, userId, userEmail, userName,
+            userAddress, userCity, userProvince,
+            getUserOrders, allOrders
         }}>
             {children}
         </UserContext.Provider>
