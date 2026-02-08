@@ -2,6 +2,7 @@ import Typography from '@mui/material/Typography'
 import React, { useContext, useEffect } from 'react'
 import { UserContext } from '../../context/UserContext'
 import { useNavigate } from 'react-router-dom'
+import { Link as RouterLink } from 'react-router-dom';
 import Box from '@mui/material/Box'
 import Button from '@mui/material/Button'
 import Grid from '@mui/material/Grid'
@@ -38,7 +39,7 @@ const Profile = () => {
         </Grid>
         <Grid size={12}>
           <Box sx={{ m: 1, width: '35ch', display: 'flex', flexDirection: 'column', alignItems: 'center' }} >
-            <Button variant="contained" onClick={() => navigate("/logout")} sx={{ backgroundColor: '#D4A574' }}>
+            <Button variant="contained" onClick={() => navigate("/logout")} sx={{ backgroundColor: '#A84A2E' }}>
               Cerrar sesión
             </Button>
           </Box>
@@ -90,7 +91,7 @@ const Profile = () => {
         <Grid size={12}>
           {allOrders == null ? (
             <Box sx={{ m: 1, width: '35ch', display: 'flex', flexDirection: 'column', alignItems: 'center' }} >
-              <Button variant="contained" onClick={() => getUserOrders(userId)} sx={{ backgroundColor: '#D4A574' }}>
+              <Button variant="contained" onClick={() => getUserOrders(userId)} sx={{ backgroundColor: '#A84A2E' }}>
                 Ver mis compras
               </Button>
             </Box>
@@ -109,7 +110,19 @@ const Profile = () => {
                 <TableBody>
                   {allOrders ? (allOrders.map(order => (
                     <TableRow key={order.id}>
-                      <TableCell component="th" scope="row" >{order.id}</TableCell>
+                      <TableCell component="th" scope="row" sx={{}}>
+                        <Button component={RouterLink} to={`/perfil/${order.id}`}
+                          sx={{
+                            display: 'block', fontWeight: 600, color: '#A84A2E',
+                            '&:hover': {
+                              textDecoration: 'underline',
+                              transform: 'scale(1.05)',
+                            },
+                            transition: 'background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease',
+                          }} >
+                          {order.id}
+                        </Button>
+                      </TableCell>
                       <TableCell align="left">{order.fecha_creacion ? order.fecha_creacion.substring(0, 10) : ''}</TableCell>
                       <TableCell align="left">{order.status}</TableCell>
                       <TableCell align="left">{order.total_pagar ? `$${order.total_pagar.toLocaleString("es-ES", { useGrouping: true })}` : ''}</TableCell>

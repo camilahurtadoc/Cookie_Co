@@ -53,7 +53,7 @@ function App() {
         <Route path='/register' element={tokenJwt ? <Navigate to="/" /> : <Register />} />
         <Route path='/logout' element={tokenJwt ? <Logout /> : <Navigate to="/" />} />
         <Route path='/perfil' element={tokenJwt ? <Profile /> : <Navigate to="/" />} />
-        <Route path='/perfil/pedidos' element={tokenJwt ? <Orders /> : <Navigate to="/" />} />
+        <Route path='/perfil/:pedidos' element={tokenJwt ? <Orders /> : <Navigate to="/" />} />
         <Route path='/perfil/direcciones' element={tokenJwt ? <ProfileAdress /> : <Navigate to="/" />} />
         <Route path='/perfil/favoritos' element={tokenJwt ? <Favorites /> : <Navigate to="/" />} />
         <Route path='/*' element={<NotFound />} />
