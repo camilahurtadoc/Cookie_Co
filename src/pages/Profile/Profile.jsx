@@ -30,6 +30,10 @@ const Profile = () => {
     navigate(`/perfil/${orderId}`)
   }
 
+  const refreshOrders = (userId) => {
+    getUserOrders(userId)
+    
+  }
   useEffect(() => {
     getUserInfo()
     // getUserOrders(userId)
@@ -96,47 +100,53 @@ const Profile = () => {
         <Grid size={12}>
           {allOrders == null ? (
             <Box sx={{ m: 1, width: '35ch', display: 'flex', flexDirection: 'column', alignItems: 'center' }} >
-              <Button variant="contained" onClick={() => getUserOrders(userId)} sx={{ backgroundColor: '#A84A2E' }}>
+              <Button variant="contained" onClick={() => refreshOrders(userId)} sx={{ backgroundColor: '#A84A2E' }}>
                 Ver mis compras
               </Button>
             </Box>
           ) : (
-
-            <TableContainer component={Paper} >
-              <Table aria-label="simple table">
-                <TableHead>
-                  <TableRow>
-                    <TableCell sx={{ fontWeight: 600 }}>Pedido</TableCell>
-                    <TableCell align="left" sx={{ fontWeight: 600 }}>Fecha</TableCell>
-                    <TableCell align="left" sx={{ fontWeight: 600 }}>Estado de pago</TableCell>
-                    <TableCell align="left" sx={{ fontWeight: 600 }}>Total</TableCell>
-                  </TableRow>
-                </TableHead>
-                <TableBody>
-                  {allOrders ? (allOrders.map(order => (
-                    <TableRow key={order.id}>
-                      <TableCell component="th" scope="row" sx={{}}>
-                        <Button onClick={() => handleClickOrder(order.id)}
-                          sx={{
-                            display: 'block', textAlign: 'left', fontWeight: 600, color: '#A84A2E',
-                            '&:hover': {
-                              textDecoration: 'underline',
-                              transform: 'scale(1.05)',
-                            },
-                            transition: 'background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease',
-                          }} >
-                          {order.id}
-                        </Button>
-                      </TableCell>
-                      <TableCell align="left">{order.fecha_creacion ? order.fecha_creacion.substring(0, 10) : ''}</TableCell>
-                      <TableCell align="left">{order.status}</TableCell>
-                      <TableCell align="left">{order.total_pagar ? `$${order.total_pagar.toLocaleString("es-ES", { useGrouping: true })}` : ''}</TableCell>
+            <>
+              <TableContainer component={Paper} >
+                <Table aria-label="simple table">
+                  <TableHead>
+                    <TableRow>
+                      <TableCell sx={{ fontWeight: 600 }}>Pedido</TableCell>
+                      <TableCell align="left" sx={{ fontWeight: 600 }}>Fecha</TableCell>
+                      <TableCell align="left" sx={{ fontWeight: 600 }}>Estado de pago</TableCell>
+                      <TableCell align="left" sx={{ fontWeight: 600 }}>Total</TableCell>
                     </TableRow>
-                  ))) : (<TableRow></TableRow>)}
+                  </TableHead>
+                  <TableBody>
+                    {allOrders ? (allOrders.map(order => (
+                      <TableRow key={order.id}>
+                        <TableCell component="th" scope="row" sx={{}}>
+                          <Button onClick={() => handleClickOrder(order.id)}
+                            sx={{
+                              display: 'block', textAlign: 'left', fontWeight: 600, color: '#A84A2E',
+                              '&:hover': {
+                                textDecoration: 'underline',
+                                transform: 'scale(1.05)',
+                              },
+                              transition: 'background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease',
+                            }} >
+                            {order.id}
+                          </Button>
+                        </TableCell>
+                        <TableCell align="left">{order.fecha_creacion ? order.fecha_creacion.substring(0, 10) : ''}</TableCell>
+                        <TableCell align="left">{order.status}</TableCell>
+                        <TableCell align="left">{order.total_pagar ? `$${order.total_pagar.toLocaleString("es-ES", { useGrouping: true })}` : ''}</TableCell>
+                      </TableRow>
+                    ))) : (<TableRow></TableRow>)}
 
-                </TableBody>
-              </Table>
-            </TableContainer>
+                  </TableBody>
+                </Table>
+              </TableContainer>
+              <Box sx={{ m: 1, width: '35ch', display: 'flex', flexDirection: 'column', alignItems: 'center' }} >
+                <Button variant="contained" onClick={() => getUserOrders(userId)} sx={{ backgroundColor: '#A84A2E' }}>
+                  Actualizar lista compras
+                </Button>
+              </Box>
+            </>
           )
 
           }

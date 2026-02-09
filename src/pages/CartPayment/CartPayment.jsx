@@ -45,9 +45,6 @@ const CartPayment = () => {
     useEffect(() => {
         // getUserSpecificOrder(lastCartBackend.id)
         getCookiesList()
-        console.log('inside useEffect')
-        console.log('lastOrderBackend:')
-        console.log(lastOrderBackend)
         // getUserInfo()
     }, [])
 
@@ -96,8 +93,8 @@ const CartPayment = () => {
 
     //POST order details
     const fetchOrderData = (orderItems) => {
-        console.log('lastOrderBackend')
-        console.log(lastOrderBackend)
+        // console.log('lastOrderBackend')
+        // console.log(lastOrderBackend)
         const orderPromises = orderItems.map(async (orderItem) => {
 
             try {
@@ -139,6 +136,7 @@ const CartPayment = () => {
             console.log('All promises in order settled:', results)
             setCart([])
             setTotal(0)
+            setCartDetailsBackend(null)
         })
     }
 
