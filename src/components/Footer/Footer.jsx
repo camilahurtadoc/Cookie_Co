@@ -119,10 +119,10 @@ const Footer = () => {
               <Typography color='primary' variant='h6'>
                 Nosotros            </Typography>
               <List aria-label="navegación sobre nosotros" >
-                <ListItem component={Link} to='/' disablePadding >
+                <ListItem component={Link} to='/nosotros' disablePadding >
                   <ListItemText primary='Quiénes Somos' sx={{ color: '#EDE4D9' }} />
                 </ListItem>
-                <ListItem component={Link} to='/' disablePadding >
+                {/* <ListItem component={Link} to='/' disablePadding >
                   <ListItemText primary='Apoyo a Fundaciones' sx={{ color: '#EDE4D9' }} />
                 </ListItem>
                 <ListItem component={Link} to='/' disablePadding >
@@ -133,7 +133,7 @@ const Footer = () => {
                 </ListItem>
                 <ListItem component={Link} to='/' disablePadding >
                   <ListItemText primary='Regalos Corporativos' sx={{ color: '#EDE4D9' }} />
-                </ListItem>
+                </ListItem> */}
               </List>
             </Grid>
             <Grid size={{ xs: 12, md: 4 }}>
