@@ -21,7 +21,6 @@ const Orders = () => {
 
   const { getUserSpecificOrder, specificOrder } = useContext(UserContext)
   const { listaCookies, getCookiesList } = useContext(AxiosCookiesContext)
-  let count = 0;
 
   useEffect(() => {
     getUserSpecificOrder(orderId)
@@ -35,10 +34,12 @@ const Orders = () => {
           <Typography variant='h4' sx={{ m: 2, color: 'primary' }}>Pedido #{orderId}</Typography>
         </Grid>
         <Grid size={12}>
-          <Grid size={12}>
-            <Typography variant='h5' sx={{ ml: 2, color: 'primary' }} gutterBottom>Fecha: {specificOrder ? specificOrder[0].fecha_creacion.substring(0, 10) : ''}</Typography>
-          </Grid>
-          <Grid size={12}></Grid>
+        </Grid>
+        <Grid size={12}>
+          <Typography variant='h5' sx={{ ml: 2, color: 'primary' }} gutterBottom>Fecha: {specificOrder?.[0]?.fecha_creacion?.substring(0, 10) || ''}</Typography>
+        </Grid>
+        <Grid size={12}>
+
           <TableContainer component={Paper} >
             <Table aria-label="simple table">
               <TableHead>
@@ -50,31 +51,34 @@ const Orders = () => {
                 </TableRow>
               </TableHead>
               <TableBody>
-                {specificOrder ? (specificOrder.map(order => (
-                  <TableRow key={order.id}>
-                    <TableCell component="th" scope="row" >{++count}</TableCell>
-                    <TableCell align="left">
-                      <Card sx={{ display: 'flex' }}>
-                        <Box sx={{ display: 'flex', width: '100%', pb: 0 }}>
-                          <CardMedia
-                            component="img"
-                            height="160"
-                            image={listaCookies? listaCookies[order.id_producto].imagen_url : ''}
-                            alt={listaCookies? listaCookies[order.id_producto].name : ''}
-                            sx={{minWidth:200, maxWidth:400}}
-                          />
-                        </Box>
-                      </Card>
-                    </TableCell>
-                    <TableCell align="left">{listaCookies[order.id_producto].name}</TableCell>
-                    <TableCell align="left">{order.cantidad}</TableCell>
-                  </TableRow>
-                ))) : (<TableRow></TableRow>)}
+                {specificOrder ? (specificOrder.map((order, index) => {
+                  const cookie = listaCookies.find(c => c.id === order.id_producto);
+                  return (
+                    <TableRow key={index}>
+                      <TableCell component="th" scope="row" >{++index}</TableCell>
+                      <TableCell align="left">
+                        <Card sx={{ display: 'flex' }}>
+                          <Box sx={{ display: 'flex', width: '100%', pb: 0 }}>
+                            <CardMedia
+                              component="img"
+                              height="160"
+                              image={cookie ? cookie.imagen_url : ''}
+                              alt={cookie ? cookie.name : ''}
+                              sx={{ minWidth: 200, maxWidth: 400 }}
+                            />
+                          </Box>
+                        </Card>
+                      </TableCell>
+                      <TableCell align="left">{cookie ? cookie.name : 'Producto no encontrado'}</TableCell>
+                      <TableCell align="left">{order.cantidad}</TableCell>
+                    </TableRow>
+                  )
+                })) : (<TableRow><TableCell colSpan={4}>No hay productos</TableCell></TableRow>)}
               </TableBody>
             </Table>
           </TableContainer>
-        </Grid>
 
+        </Grid>
 
 
       </Grid>
