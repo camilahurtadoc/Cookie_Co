@@ -233,7 +233,7 @@ const UserProvider = ({ children }) => {
     const [userProvince, setUserProvince] = useState(null)
 
     const getUserInfo = async () => {
-        
+
         const token = localStorage.getItem("token_jwt")
         setTokenJwt(localStorage.getItem("token_jwt"))
 
@@ -244,8 +244,8 @@ const UserProvider = ({ children }) => {
         }
 
         try {
-            // const response = await fetch(`${import.meta.env.VITE_API_URL}/auth/me`, {
-            const response = await fetch(`http://localhost:3000/api/auth/me`, {
+            const response = await fetch(`${import.meta.env.VITE_API_URL}/auth/me`, {
+                // const response = await fetch(`http://localhost:3000/api/auth/me`, {
                 method: "GET",
                 headers: {
                     "Content-Type": "application/json",
@@ -288,8 +288,8 @@ const UserProvider = ({ children }) => {
         }
 
         try {
-            const response = await fetch(`http://localhost:3000/api/ordenes/usuario/${userId}`, {
-                // const response = await fetch(`${import.meta.env.VITE_API_URL}/ordenes/usuario/${userId}`, {
+            const response = await fetch(`${import.meta.env.VITE_API_URL}/ordenes/usuario/${userId}`, {
+                // const response = await fetch(`http://localhost:3000/api/ordenes/usuario/${userId}`, {
                 method: "GET",
                 headers: {
                     "Content-Type": "application/json",
@@ -326,8 +326,8 @@ const UserProvider = ({ children }) => {
         }
 
         try {
-            const response = await fetch(`http://localhost:3000/api/ordenes/${orderId}/detalle`, {
-                // const response = await fetch(`${import.meta.env.VITE_API_URL}/ordenes/${orderId}/detalle`, {
+            const response = await fetch(`${import.meta.env.VITE_API_URL}/ordenes/${orderId}/detalle`, {
+                // const response = await fetch(`http://localhost:3000/api/ordenes/${orderId}/detalle`, {
                 method: "GET",
                 headers: {
                     "Content-Type": "application/json",

@@ -48,8 +48,8 @@ const Cart = () => {
 
     //POST cart with user id (no details)
     try {
-      const response = await fetch(`http://localhost:3000/api/carrito`, {
-        // const response = await fetch(`${import.meta.env.VITE_API_URL}/carrito`, {
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/carrito`, {
+        // const response = await fetch(`http://localhost:3000/api/carrito`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -79,8 +79,8 @@ const Cart = () => {
 
     //POST product order with user id (no details)
     try {
-      const response = await fetch(`http://localhost:3000/api/ordenes`, {
-        // const response = await fetch(`${import.meta.env.VITE_API_URL}/ordenes`, {
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/ordenes`, {
+        // const response = await fetch(`http://localhost:3000/api/ordenes`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -110,8 +110,8 @@ const Cart = () => {
 
     //GET latest cart of user
     try {
-      const response = await fetch(`http://localhost:3000/api/carrito/usuario/${userId}`, {
-        // const response = await fetch(`${import.meta.env.VITE_API_URL}/carrito/usuario/${userId}`, {
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/carrito/usuario/${userId}`, {
+        // const response = await fetch(`http://localhost:3000/api/carrito/usuario/${userId}`, {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
@@ -136,8 +136,8 @@ const Cart = () => {
 
     //GET orders of user
     try {
-      const response = await fetch(`http://localhost:3000/api/ordenes/usuario/${userId}`, {
-        // const response = await fetch(`${import.meta.env.VITE_API_URL}/ordenes/usuario/${userId}`, {
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/ordenes/usuario/${userId}`, {
+        // const response = await fetch(`http://localhost:3000/api/ordenes/usuario/${userId}`, {
         method: "GET",
         headers: {
           "Content-Type": "application/json",

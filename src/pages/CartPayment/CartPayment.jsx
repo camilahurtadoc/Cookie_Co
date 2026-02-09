@@ -53,8 +53,8 @@ const CartPayment = () => {
         const cartPromises = cartItems.map(async (cartItem) => {
 
             try {
-                const response = await fetch(`http://localhost:3000/api/carrito/${lastCartBackend.id}/items`, {
-                    // const response = await fetch(`${import.meta.env.VITE_API_URL}/carrito`, {
+                const response = await fetch(`${import.meta.env.VITE_API_URL}/carrito/${lastCartBackend.id}/items`, {
+                    // const response = await fetch(`http://localhost:3000/api/carrito/${lastCartBackend.id}/items`, {
                     method: "POST",
                     headers: {
                         "Content-Type": "application/json",
@@ -98,8 +98,8 @@ const CartPayment = () => {
         const orderPromises = orderItems.map(async (orderItem) => {
 
             try {
-                const response = await fetch(`http://localhost:3000/api/ordenes/${lastOrderBackend.id}/detalle`, {
-                    // const response = await fetch(`${import.meta.env.VITE_API_URL}/carrito`, {
+                const response = await fetch(`${import.meta.env.VITE_API_URL}/ordenes/${lastOrderBackend.id}/detalle`, {
+                    // const response = await fetch(`http://localhost:3000/api/ordenes/${lastOrderBackend.id}/detalle`, {
                     method: "POST",
                     headers: {
                         "Content-Type": "application/json",
