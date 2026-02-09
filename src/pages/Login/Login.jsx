@@ -76,7 +76,7 @@ const Login = () => {
                 Ingresar
               </Button>
               <Box sx={{ my: 2, display: 'flex', flexDirection: 'column', alignItems: 'end' }}>
-                <Typography component={Link} to='/' variant='caption' sx={{ color: '#5C4033' }}>¿Olvidó su contraseña?</Typography>
+                {/* <Typography component={Link} to='/' variant='caption' sx={{ color: '#5C4033' }}>¿Olvidó su contraseña?</Typography> */}
                 <Typography component={Link} to='/register' variant='caption' sx={{ color: '#5C4033' }}>¿Cliente nuevo?</Typography>
               </Box>
             </Box>
