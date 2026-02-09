@@ -28,7 +28,7 @@ const CookiePage = () => {
 
     useEffect(() => {
         getCookie(cookieId)
-        console.log(cookie)
+        // console.log(cookie)
     }, [])
 
     useEffect(() => {
