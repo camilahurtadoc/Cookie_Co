@@ -122,9 +122,9 @@ function ResponsiveAppBar() {
                                 <MenuItem onClick={handleCloseNavMenu} component={RouterLink} to='/locales'>
                                     <Typography sx={{ textAlign: 'center' }} color='primary' >Locales</Typography>
                                 </MenuItem>
-                                <MenuItem onClick={handleCloseNavMenu} component={RouterLink} to='/blog'>
+                                {/* <MenuItem onClick={handleCloseNavMenu} component={RouterLink} to='/blog'>
                                     <Typography sx={{ textAlign: 'center' }} color='primary' >Blog</Typography>
-                                </MenuItem>
+                                </MenuItem> */}
                                 {
                                     tokenJwt ? (
                                         <MenuItem onClick={handleCloseNavMenu} component={RouterLink} to='/perfil'>
