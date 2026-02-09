@@ -74,8 +74,8 @@ const Locations = () => {
             <Typography variant='h4' sx={{ m: 2, color: 'primary' }}>Tiendas</Typography>
           </Grid>
           {
-            locationsList.map(local => (
-              <Grid size={{ xs: 12, md: 6 }} sx={{ display: 'flex', justifyContent: 'center' }}>
+            locationsList.map((local, index) => (
+              <Grid size={{ xs: 12, md: 6 }} sx={{ display: 'flex', justifyContent: 'center' }} key={index}>
                 <LocationsCard
                   img={local.img}
                   alt={local.alt}
