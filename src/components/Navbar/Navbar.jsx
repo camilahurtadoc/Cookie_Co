@@ -73,7 +73,7 @@ function ResponsiveAppBar() {
 
             <AppBar position="static" sx={{ width: '100%', maxWidth: '100vw' }}>
                 <Container maxWidth="xl" disableGutters sx={{ px: { xs: 2, md: 12 } }}>
-                    <Toolbar disableGutters>
+                    <Toolbar disableGutters sx={{display:'flex', justifyContent:'space-between'}}>
                         <Box
                             component='img'
                             sx={{ maxWidth: 180, display: { xs: 'none', md: 'flex' } }}
