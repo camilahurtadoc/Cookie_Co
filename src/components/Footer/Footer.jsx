@@ -85,9 +85,9 @@ const Footer = () => {
                 <ListItem component={Link} to='/locales' disablePadding >
                   <ListItemText primary='Dónde Encontrarnos' sx={{ color: '#EDE4D9' }} />
                 </ListItem>
-                <ListItem component={Link} to='/blog' disablePadding >
+                {/* <ListItem component={Link} to='/blog' disablePadding >
                   <ListItemText primary='Blog' sx={{ color: '#EDE4D9' }} />
-                </ListItem>
+                </ListItem> */}
                 <ListItem component={Link} to='/login' disablePadding >
                   <ListItemText primary='Mi Cuenta' sx={{ color: '#EDE4D9' }} />
                 </ListItem>
@@ -98,19 +98,19 @@ const Footer = () => {
                 Servicio al Cliente
               </Typography>
               <List aria-label="navegación servicio al cliente" >
-                <ListItem component={Link} to='/' disablePadding >
+                <ListItem component={Link} to='/contacto' disablePadding >
                   <ListItemText primary='Contacto' sx={{ color: '#EDE4D9' }} />
                 </ListItem>
-                <ListItem component={Link} to='/' disablePadding >
+                <ListItem component={Link} to='/despachos' disablePadding >
                   <ListItemText primary='Despachos' sx={{ color: '#EDE4D9' }} />
                 </ListItem>
-                <ListItem component={Link} to='/' disablePadding >
+                {/* <ListItem component={Link} to='/' disablePadding >
                   <ListItemText primary='Seguimiento Pedido' sx={{ color: '#EDE4D9' }} />
                 </ListItem>
                 <ListItem component={Link} to='/' disablePadding >
                   <ListItemText primary='Retiro' sx={{ color: '#EDE4D9' }} />
-                </ListItem>
-                <ListItem component={Link} to='/' disablePadding >
+                </ListItem> */}
+                <ListItem component={Link} to='/faq' disablePadding >
                   <ListItemText primary='Preguntas Frecuentes' sx={{ color: '#EDE4D9' }} />
                 </ListItem>
               </List>
