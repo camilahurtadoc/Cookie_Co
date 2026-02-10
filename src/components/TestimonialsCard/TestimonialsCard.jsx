@@ -14,13 +14,13 @@ const TestimonialsCard = ({ rating, name, img, review }) => {
         return stars;
     };
     return (
-        <Box sx={{ display: 'flex', flexDirection: 'column', m:2, border:'solid', backgroundColor:'#5C4033', borderRadius:'16px' }}>
+        <Box elevation={10} sx={{ display: 'flex', flexDirection: 'column', m:2, backgroundColor:'#ffffff', boxShadow: 10, borderRadius:'16px' }}>
             <Typography sx={{mt:2, ml:2}}>{starRating(rating)}</Typography>
             <Box sx={{ display:'flex', alignItems:'center', m:2}}>
                 <Avatar alt={name} src={img} sx={{width:56, height:56, mr:1}} />
-                <Typography variant='h6' color='#EDE4D9'>{name}</Typography>
+                <Typography variant='h6' color='#5C4033' fontWeight={600}>{name}</Typography>
             </Box>
-            <Typography variant='subtitle1' color='#EDE4D9' sx={{m:1}}>{review}</Typography>
+            <Typography variant='subtitle1' color='#5C4033' sx={{mx:3, my:1}}>{review}</Typography>
         </Box>
     )
 }
