@@ -38,7 +38,7 @@ const Login = () => {
             onSubmit={handleSubmit}
             sx={{ display: 'flex', flexDirection: 'column' }}
           >
-            <FormControl sx={{ m: 1, width: '35ch' }}>
+            <FormControl sx={{ m: 1, width: {xs:'auto', md:'35ch'} }}>
               <InputLabel htmlFor="login-email" color='#5C4033'>Correo electrónico</InputLabel>
               <OutlinedInput
                 required
@@ -54,7 +54,7 @@ const Login = () => {
                 }}
               />
             </FormControl>
-            <FormControl variant='outlined' sx={{ m: 1, width: '35ch' }}>
+            <FormControl variant='outlined' sx={{ m: 1, width: {xs:'auto', md:'35ch'} }}>
               <InputLabel htmlFor="login-password" color='#5C4033'>Contraseña</InputLabel>
               <OutlinedInput
                 required
@@ -71,7 +71,7 @@ const Login = () => {
                 color='#5C4033'
               />
             </FormControl>
-            <Box sx={{ m: 1, width: '35ch', display: 'flex', flexDirection: 'column', alignItems: 'end' }} >
+            <Box sx={{ m: 1, width: {xs:'auto', md:'35ch'}, display: 'flex', flexDirection: 'column', alignItems: 'end' }} >
               <Button variant="contained" type="submit" sx={{ backgroundColor: '#D4A574' }}>
                 Ingresar
               </Button>
