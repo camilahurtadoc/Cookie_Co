@@ -19,7 +19,7 @@ const Highlights = () => {
 
   return (
     <>
-      <Box sx={{ display: 'flex', flexDirection: 'column', py: 5, backgroundColor: '#5C4033' }} >
+      <Box sx={{ display: 'flex', flexDirection: 'column', py: 5, backgroundColor: '#6B4E3D ' }} >
         <Grid container spacing={3} alignItems="center" justifyContent="center" sx={{ px: { xs: 2, md: 15 } }}>
           <Grid size={12}>
             <Typography variant='h4' sx={{ m: 2, color: '#F5E8C7' }}>¡Los más vendidos!</Typography>

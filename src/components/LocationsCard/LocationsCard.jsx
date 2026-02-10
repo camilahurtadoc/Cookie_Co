@@ -21,7 +21,7 @@ import AccessTimeFilledIcon from '@mui/icons-material/AccessTimeFilled';
 const LocationsCard = ({ img, alt, shopName, address, phoneNumber, email, horarioLV, horarioS, horarioD }) => {
     return (
         <>
-            <Card sx={{ display: 'flex', maxWidth: 600, minWidth: 250 }}>
+            <Card elevation={10} sx={{ display: 'flex', maxWidth: 600, minWidth: 250 }}>
                 <Box sx={{ display: 'flex', justifyContent: 'center', flexDirection: { xs: 'column' } }}>
                     <CardMedia
                         component="img"

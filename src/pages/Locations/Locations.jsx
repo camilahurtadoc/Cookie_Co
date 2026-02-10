@@ -69,7 +69,7 @@ const Locations = () => {
         img={exterior2}
       />
       <Box sx={{ display: 'flex', flexDirection: 'column', my: 2, p: 3 }}>
-        <Grid container spacing={2} sx={{ px: { xs: 2, md: 15 } }} >
+        <Grid container spacing={4} sx={{ px: { xs: 2, md: 15 } }} >
           <Grid size={12}>
             <Typography variant='h4' sx={{ m: 2, color: 'primary' }}>Tiendas</Typography>
           </Grid>

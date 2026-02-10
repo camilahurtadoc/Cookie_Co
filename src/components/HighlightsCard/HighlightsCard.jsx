@@ -20,7 +20,7 @@ const HighlightsCard = ({ alt, img, title, price, desc, id }) => {
     }
 
     return (
-        <Card sx={{ maxWidth: {xs:'auto', md:345} }} >
+        <Card elevation={10} sx={{ maxWidth: {xs:'auto', md:345} }} >
             <CardActionArea onClick={goToCookie}>
                 <CardMedia
                     component="img"

@@ -16,7 +16,7 @@ const AboutUs = () => {
   return (
     <>
 
-      <Box sx={{ color: '#EDE4D9', backgroundColor: '#5C4033', display: 'flex', py: 5, }} >
+      <Box sx={{ color: '#EDE4D9', backgroundColor: '#6B4E3D ', display: 'flex', py: 5, }} >
         <Grid container spacing={2} alignItems={'center'} sx={{ px: { xs: 2, md: 15 } }}>
           <Grid size={{ xs: 12, md: 6 }}>
             <Box sx={{ width: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'center', }} >

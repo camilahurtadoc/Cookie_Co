@@ -9,7 +9,7 @@ const AboutUsPage = () => {
         <Box sx={{ display: 'flex', flexDirection: 'column', my: 2, p: 3 }}>
             <Grid container spacing={2} sx={{ px: { xs: 2, md: 15 } }} >
                 <Grid size={12}>
-                    <Typography variant='h4' sx={{ m: 2, color: 'primary' }}>¿Quienes Somos?</Typography>
+                    <Typography variant='h4' sx={{ m: 2, color: '#6B4E3D ' }}>¿Quienes Somos?</Typography>
                 </Grid>
                 <Grid size={12} sx={{borderRadius:'16px', overflow:'hidden'}}>
                     <AboutUs />
